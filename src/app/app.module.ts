@@ -9,13 +9,15 @@ import { AppMaterialModule } from './shared/material.module';
 import { LoginComponent } from './tab/login/login.component';
 import { CadastroComponent } from './tab/cadastro/cadastro.component';
 import { TabLoginCadastroComponent } from './tab/tab-login-cadastro/tab-login-cadastro.component';
+import { TelaPrincipalComponent } from './administrador/tela-principal/tela-principal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CadastroComponent,
-    TabLoginCadastroComponent
+    TabLoginCadastroComponent,
+    TelaPrincipalComponent
   ],
   imports: [
     BrowserModule,
