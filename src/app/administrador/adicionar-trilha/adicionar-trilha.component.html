@@ -1,98 +1,136 @@
-<div>
-    <div flex>
-        <div class="card-container" fxLayout="row" fxLayoutGap="20px">
-            <div fxFill fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="8px">
-                <div fxFlex="calc(30% -4px)" fxFlex.lt-md="calc(100% -4px)">
-                    <mat-card class="mat-elevation-z0">
-                        <h2>Cadastrar Trilha</h2>
-                      <form [formGroup]="formTrilha" autocomplete="off">
-                            <div style="margin-top: 15px;">
+<div flex>
+  <div class="card-container" fxLayout="row" fxLayoutGap="20px">
+    <div fxFill fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="8px">
+      <div fxFlex="calc(30% -4px)" fxFlex.lt-md="calc(100% -4px)">
+        <mat-card class="mat-elevation-z0">
+          <h2>Cadastrar Trilha</h2>
+          <form [formGroup]="formTrilha" autocomplete="off">
+            <div style="margin-top: 15px;">
 
-                                <div fxLayout="row wrap" fxLayoutAlign="start top">
-                                    <mat-form-field fxFlex="100" fxFlex.lt-md="100" appearance="outline">
-                                        <mat-label>Nome</mat-label>
-                                        <input type="text" name="nome" maxlength="150" formControlName="nome" matInput>
-                                        <mat-error *ngIf="formControls ['nome']?.invalid">
-                                            Campo obrigatório
-                                        </mat-error>
-                                    </mat-form-field>
-                                </div>
-                                <div fxLayout="row wrap" fxLayoutAlign="start top">
-                                    <mat-form-field fxFlex="100" fxFlex.lt-md="100" appearance="outline">
-                                        <mat-label>Apresentação</mat-label>
-                                        <textarea matInput formControlName="apresentacao"></textarea>
-                                        <mat-error *ngIf="formControls ['apresentacao']?.invalid">
-                                            Campo obrigatório
-                                        </mat-error>
-                                    </mat-form-field>
-                                </div>
+              <div fxLayout="row wrap" fxLayoutAlign="start top">
+                <mat-form-field fxFlex="100" fxFlex.lt-md="100" appearance="outline">
+                  <mat-label>Nome</mat-label>
+                  <input type="text" name="nome" maxlength="150" formControlName="nome" matInput>
+                  <mat-error *ngIf="formControls ['nome']?.invalid">
+                    Campo obrigatório
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="start top">
+                <mat-form-field fxFlex="100" fxFlex.lt-md="100" appearance="outline">
+                  <mat-label>Apresentação</mat-label>
+                  <textarea matInput formControlName="apresentacao"></textarea>
+                  <mat-error *ngIf="formControls ['apresentacao']?.invalid">
+                    Campo obrigatório
+                  </mat-error>
+                </mat-form-field>
+              </div>
 
-                                <div fxLayout="row" fxLayoutAlign="center" fxLayoutAlign.gt-sm="end">
-                                    <div>
-                                        <button style="width: 100px" class="btn danger" type="button"
-                                            fxLayoutAlign="center center" (click)="reset()">
-                                            Cancelar
-                                        </button>
-                                    </div>
-                                    <div fxFlexOffset="1">
-                                        <button style="width: 100px" class="btn" type="button"
-                                            fxLayoutAlign="center center" (click)="save()">
-                                            Salvar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </mat-card>
+              <div fxLayout="row" fxLayoutAlign="center" fxLayoutAlign.gt-sm="end">
+                <div>
+                  <button style="width: 100px" class="btn danger" type="button" fxLayoutAlign="center center"
+                    (click)="reset()">
+                    Cancelar
+                  </button>
                 </div>
+                <div fxFlexOffset="1">
+                  <button style="width: 100px" class="btn" type="button" fxLayoutAlign="center center" (click)="save()">
+                    Salvar
+                  </button>
+                </div>
+              </div>
             </div>
-        </div>
+          </form>
+        </mat-card>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="card-container">
-    <mat-card class="tree-grid">
-      <div style="margin-top: 30px">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
+  <mat-card class="tree-grid">
+    <div style="margin-top: 30px">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Nome</th>
+              <th>Apresentação</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="trilha?.length == 0 || trilha == null">
+              <td colspan="22" class="no-data-found">
+                Nenhum registro foi encontrado
+              </td>
+            </tr>
+            <ng-container *ngFor="let t of trilha">
               <tr>
-                <th></th>
-                <th>Nome </th>
-                <th>Apresentação</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngIf="trilha?.length == 0 || trilha == null" >
-                <td colspan="22" class="no-data-found">
-                  Nenhum registro foi encontrado
+                <td class="text-align-center" style="width: 5%;">
+                  <mat-icon [matMenuTriggerFor]="menu">more_horiz</mat-icon>
+                  <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                      <div class="container-dropdown">
+                          <button mat-menu-item>
+                              <mat-icon>edit</mat-icon>
+                              Adicionar Cursos
+                          </button>
+                      </div>
+                  </mat-menu>
                 </td>
-              </tr>
-              <ng-container *ngFor="let t of trilha">
-                <tr>
-                  <td>{{t.nome}</td>
-                  <td>{{t.apresentacao}}</td>
-                  
-                  <td style="text-align: right">
-                    <button matTooltip="Editar" matTooltipPosition="left" style="float: none" type="button"
-                      class="grid-button">
-                      <mat-icon class="icon-check" (click)="edit()">edit</mat-icon>
-                    </button>
-                    <button matTooltip="Excluir" matTooltipPosition="left" style="float: none" type="button"
-                      class="grid-button danger">
-                      <mat-icon (click)="delete()">delete</mat-icon>
-                    </button>
+                <td>
+                  <ng-container *ngIf="t.cursos?.length > 0" >
+                    <button mat-icon-button
+                      (click)="t.expanded=!t.expanded">
+                      <mat-icon class="mat-icon-rtl-mirror">
+                          {{t.expanded ? 'expand_more' : 'chevron_right'}}
+                      </mat-icon>
+                  </button>
+                  </ng-container>
+                </td>
+                <td>{{t.nome}}</td>
+                <td>{{t.apresentacao}}</td>
+
+                <td style="text-align: right">
+                  <button matTooltip="Editar" matTooltipPosition="left" style="float: none" type="button"
+                    class="grid-button">
+                    <mat-icon class="icon-check" (click)="edit()">edit</mat-icon>
+                  </button>
+                  <button matTooltip="Excluir" matTooltipPosition="left" style="float: none" type="button"
+                    class="grid-button danger">
+                    <mat-icon (click)="delete()">delete</mat-icon>
+                  </button>
+                </td>
+
+                <tr *ngIf="t.cursos.length > 0 && t.expanded">
+                  <td colspan="19">
+                      <table class="table">
+                          <thead>
+                              <th>Nome Curso</th>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let c of t.cursos;let index = index" [ngClass]="getDetailsClass(index, c)">
+                                 <td>{{c.nome}}</td>
+                                 <td style="text-align: right">
+                                    <button matTooltip="Excluir" matTooltipPosition="left" style="float: none" type="button"
+                                      class="grid-button danger">
+                                      <mat-icon (click)="delete()">delete</mat-icon>
+                                    </button>
+                                </td>
+                              </tr>
+                          </tbody>
+                      </table>
                   </td>
                 </tr>
-              </ng-container>
-            </tbody>
-          </table>
-        </div>
+            </ng-container>
+          </tbody>
+        </table>
       </div>
-      <mat-paginator [length]="pageable.recordCount" [pageSize]="pageable.pageSize" (page)="onPageChange($event)"
-        [pageSizeOptions]="[5, 10, 25, 100]">
-      </mat-paginator>
-    </mat-card>
-  </div>
-
+    </div>
+    <mat-paginator [length]="pageable.recordCount" [pageSize]="pageable.pageSize" (page)="onPageChange($event)"
+      [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </mat-card>
+</div>
