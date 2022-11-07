@@ -10,6 +10,10 @@ import { LoginComponent } from './tab/login/login.component';
 import { CadastroComponent } from './tab/cadastro/cadastro.component';
 import { TabLoginCadastroComponent } from './tab/tab-login-cadastro/tab-login-cadastro.component';
 import { TelaPrincipalComponent } from './administrador/tela-principal/tela-principal.component';
+import { AdicionarTrilhaComponent } from './administrador/adicionar-trilha/adicionar-trilha.component';
+import { AdicionarConteudoComponent } from './administrador/adicionar-conteudo/adicionar-conteudo.component';
+import { AdicionarCursoComponent } from './administrador/adicionar-curso/adicionar-curso.component';
+import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adicionar-modulo.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { TelaPrincipalComponent } from './administrador/tela-principal/tela-prin
     LoginComponent,
     CadastroComponent,
     TabLoginCadastroComponent,
-    TelaPrincipalComponent
+    TelaPrincipalComponent,
+    AdicionarTrilhaComponent,
+    AdicionarConteudoComponent,
+    AdicionarCursoComponent,
+    AdicionarModuloComponent
   ],
   imports: [
     BrowserModule,

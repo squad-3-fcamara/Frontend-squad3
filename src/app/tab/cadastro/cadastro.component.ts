@@ -16,7 +16,8 @@ export class CadastroComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      senha: ['', [Validators.required]]
+      senha: ['', [Validators.required]],
+      confirmarSenha: ['', [Validators.required]]
     });
   }
 

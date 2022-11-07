@@ -6,8 +6,8 @@
                 <div>
                 <mat-form-field fxFlex="80"   fxFlex.lt-md="100" appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input placeholder="Email (requerido)"type="text" name="name" maxlength="80" formControlName="email" matInput>
-                    <mat-error *ngIf="formControls ['name']?.invalid">
+                    <input placeholder="Email (requerido)"type="text" name="email" maxlength="80" formControlName="email" matInput>
+                    <mat-error *ngIf="formControls ['email']?.invalid">
                         Campo obrigatório
                     </mat-error>
                 </mat-form-field>
@@ -15,11 +15,11 @@
                 <div>
                 <mat-form-field fxFlex="80"  fxFlex.lt-md="100" appearance="outline">
                     <mat-label>Senha</mat-label>
-                    <input formControlName="senha" placeholder="Senha (requerido)" matInput [type]="hide ? 'password' : 'text'">
+                    <input name="senha" formControlName="senha" placeholder="Senha (requerido)" matInput [type]="hide ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <mat-error *ngIf="formControls ['name']?.invalid">
+                    <mat-error *ngIf="formControls ['senha']?.invalid">
                         Campo obrigatório
                     </mat-error>
                   </mat-form-field>
