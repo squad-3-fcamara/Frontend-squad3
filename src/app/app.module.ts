@@ -14,6 +14,7 @@ import { AdicionarTrilhaComponent } from './administrador/adicionar-trilha/adici
 import { AdicionarConteudoComponent } from './administrador/adicionar-conteudo/adicionar-conteudo.component';
 import { AdicionarCursoComponent } from './administrador/adicionar-curso/adicionar-curso.component';
 import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adicionar-modulo.component';
+import { MenuComponent } from './navegacao/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adici
     AdicionarTrilhaComponent,
     AdicionarConteudoComponent,
     AdicionarCursoComponent,
-    AdicionarModuloComponent
+    AdicionarModuloComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

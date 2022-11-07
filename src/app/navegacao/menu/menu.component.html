@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+    <mat-nav-list class="list-horizontal">
+        <mat-list-item>
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+        </mat-list-item>
+        <mat-list-item>
+            <a class="nav-link text-dark" [routerLink]="['/']">Trilhas</a>
+        </mat-list-item>
+        <mat-list-item>
+            <button mat-button [matMenuTriggerFor]="menu">Administrador</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/adicionar-trilha']">
+                    <mat-icon>edit</mat-icon>
+                    <span>Cadastrar Trilha</span>
+                </button>
+                <button mat-menu-item [routerLink]="['/adicionar-curso']"> 
+                    <mat-icon>edit</mat-icon>
+                    <span>Cadastrar Curso</span>
+                </button>
+                <button mat-menu-item [routerLink]="['/adicionar-conteudo']"> 
+                    <mat-icon>edit</mat-icon>
+                    <span>Cadastrar Conteúdo</span>
+                </button>
+                <button mat-menu-item [routerLink]="['/adicionar-modulo']"> 
+                    <mat-icon>edit</mat-icon>
+                    <span>Cadastrar Módulo</span>
+                </button>
+            </mat-menu>
+        </mat-list-item>
+    </mat-nav-list>
+</mat-toolbar>

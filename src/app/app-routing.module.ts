@@ -11,7 +11,7 @@ import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adici
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: TabLoginCadastroComponent },
-  {path: 'administrador', component: TelaPrincipalComponent},
+  // {path: 'administrador', component: TelaPrincipalComponent},
   {path: 'adicionar-conteudo', component: AdicionarConteudoComponent},
   {path: 'adicionar-trilha', component: AdicionarTrilhaComponent},
   {path:'adicionar-curso', component: AdicionarCursoComponent},
