@@ -15,6 +15,7 @@ import { AdicionarConteudoComponent } from './administrador/adicionar-conteudo/a
 import { AdicionarCursoComponent } from './administrador/adicionar-curso/adicionar-curso.component';
 import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adicionar-modulo.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
+import { FooterComponent } from './home/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MenuComponent } from './navegacao/menu/menu.component';
     AdicionarConteudoComponent,
     AdicionarCursoComponent,
     AdicionarModuloComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
