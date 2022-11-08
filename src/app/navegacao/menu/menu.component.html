@@ -1,10 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar >
     <mat-nav-list class="list-horizontal">
         <mat-list-item>
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
         </mat-list-item>
         <mat-list-item>
-            <a class="nav-link text-dark" [routerLink]="['/']">Trilhas</a>
+            <a class="nav-link text-dark" [routerLink]="['/']">Orange Juice</a>
+        </mat-list-item> 
+        <mat-list-item>
+            <a class="nav-link text-dark" [routerLink]="['/']"> Fale conosco</a>
         </mat-list-item>
         <mat-list-item>
             <button mat-button [matMenuTriggerFor]="menu">Administrador</button>
@@ -13,17 +16,9 @@
                     <mat-icon>edit</mat-icon>
                     <span>Cadastrar Trilha</span>
                 </button>
-                <button mat-menu-item [routerLink]="['/adicionar-curso']"> 
-                    <mat-icon>edit</mat-icon>
-                    <span>Cadastrar Curso</span>
-                </button>
                 <button mat-menu-item [routerLink]="['/adicionar-conteudo']"> 
                     <mat-icon>edit</mat-icon>
                     <span>Cadastrar Conteúdo</span>
-                </button>
-                <button mat-menu-item [routerLink]="['/adicionar-modulo']"> 
-                    <mat-icon>edit</mat-icon>
-                    <span>Cadastrar Módulo</span>
                 </button>
             </mat-menu>
         </mat-list-item>
