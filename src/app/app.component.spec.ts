@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'notion-squad3'`, () => {
+  it(`should have as title 'frontend-squad3'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('notion-squad3');
+    expect(app.title).toEqual('frontend-squad3');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('notion-squad3 app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('frontend-squad3 app is running!');
   });
 });
