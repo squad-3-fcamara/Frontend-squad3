@@ -15,6 +15,7 @@ import { AdicionarCursoComponent } from './administrador/adicionar-curso/adicion
 import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adicionar-modulo.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarLoginCadastroComponent } from './tab/navbar-login-cadastro/navbar-login-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     AdicionarConteudoComponent,
     AdicionarCursoComponent,
     AdicionarModuloComponent,
-    MenuComponent
+    MenuComponent,
+    NavbarLoginCadastroComponent
   ],
   imports: [
     BrowserModule,

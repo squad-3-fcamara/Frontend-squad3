@@ -1,6 +1,6 @@
+import { Trilha } from './../models/trilha.model';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { User } from "../models/user.model";
 import { BaseService } from "./base.service";
 
 
@@ -8,12 +8,12 @@ import { BaseService } from "./base.service";
     providedIn: 'root'
 })
 
-export class UserService extends BaseService {
+export class TrilhaService extends BaseService {
     constructor(http: HttpClient, ) {
         super(http);
     }
 
-    cadastrarUsuario(usuario: User) {
-        return this._post<any>(`https://orange-squad03.herokuapp.com/usuario/cadastro`, usuario);
+    obterTrilhas() {
+        return this._get<Trilha[]>(`https://orange-squad03.herokuapp.com/trilhas`);
     }
 }

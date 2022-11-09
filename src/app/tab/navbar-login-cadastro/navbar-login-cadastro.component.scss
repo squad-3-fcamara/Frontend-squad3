@@ -1,0 +1,26 @@
+mat-nav-list.list-horizontal {
+  padding: 0;
+
+  .mat-list-item {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    color: white !important;
+
+    a {
+      color: white !important;
+    }
+  }
+}
+
+mat-toolbar {
+  background: #212122;
+  justify-content: flex-end;
+  padding-right: 20px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFBF9;
+}
