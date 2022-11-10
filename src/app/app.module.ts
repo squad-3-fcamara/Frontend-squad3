@@ -9,12 +9,13 @@ import { AppMaterialModule } from './shared/material.module';
 import { LoginComponent } from './tab/login/login.component';
 import { CadastroComponent } from './tab/cadastro/cadastro.component';
 import { TabLoginCadastroComponent } from './tab/tab-login-cadastro/tab-login-cadastro.component';
-import { TelaPrincipalComponent } from './administrador/tela-principal/tela-principal.component';
 import { AdicionarTrilhaComponent } from './administrador/adicionar-trilha/adicionar-trilha.component';
 import { AdicionarConteudoComponent } from './administrador/adicionar-conteudo/adicionar-conteudo.component';
 import { AdicionarCursoComponent } from './administrador/adicionar-curso/adicionar-curso.component';
 import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adicionar-modulo.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarLoginCadastroComponent } from './tab/navbar-login-cadastro/navbar-login-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,12 @@ import { MenuComponent } from './navegacao/menu/menu.component';
     LoginComponent,
     CadastroComponent,
     TabLoginCadastroComponent,
-    TelaPrincipalComponent,
     AdicionarTrilhaComponent,
     AdicionarConteudoComponent,
     AdicionarCursoComponent,
     AdicionarModuloComponent,
-    MenuComponent
+    MenuComponent,
+    NavbarLoginCadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +37,7 @@ import { MenuComponent } from './navegacao/menu/menu.component';
     FormsModule,
     ReactiveFormsModule,
     AppMaterialModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

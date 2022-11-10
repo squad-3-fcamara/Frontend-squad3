@@ -10,3 +10,9 @@ mat-nav-list.list-horizontal {
       }
     }
   }
+
+  mat-toolbar{
+    background: #212122;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }

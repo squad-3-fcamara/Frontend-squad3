@@ -15,7 +15,7 @@
 @include mat.core();
 
 @mixin primary {
-  color: $primary-color;
+  color: #FF7823;
 }
 @mixin info {
   color: $info-color;
@@ -49,7 +49,7 @@ $CoreSystem-theme: mat.define-light-theme(
 
 @import '~@angular/material/theming';
 $custom-typography: mat-typography-config(
-  $font-family: 'Intelo',
+  $font-family: 'Montserrat-Regular',
 );
 @include mat-core($custom-typography);
 
@@ -61,7 +61,7 @@ $custom-typography: mat-typography-config(
 html,
 body {
   height: 100%;
-  font: normal normal medium 14px/24px Intelo !important;
+  font: 'Montserrat-Regular';
 }
 button {
   cursor: pointer !important;
@@ -90,6 +90,9 @@ button {
     height: 33px;
     background: $default-btn-color 0% 0% no-repeat padding-box;
     padding: 2px 20px;
+  }
+  &.btn :hover {
+    color: #FF7823 !important;
   }
   &.btn-default {
     border: 0px;
@@ -329,7 +332,7 @@ span {
       background: #e30000 0% 0% no-repeat padding-box;
     }
     &.default {
-      background: #30804e 0% 0% no-repeat padding-box;
+      background: #FF7823 0% 0% no-repeat padding-box;
     }
     &.warning {
       background: #bfa144 0% 0% no-repeat padding-box;
@@ -363,7 +366,7 @@ button.grid-button {
   }
   &.default {
     & mat-icon {
-      color: #30804e !important;
+      color: #FF7823 !important;
     }
   }
   &.warning {
@@ -387,13 +390,13 @@ button.grid-button {
   }
 }
 
-.p-title {
-  text-align: left;
-  font: normal normal bold 16px/24px Intelo;
-  letter-spacing: 0.15px;
-  color: #161616;
-  opacity: 1;
-}
+// .p-title {
+//   text-align: left;
+//   font: normal normal bold 16px/24px Intelo;
+//   letter-spacing: 0.15px;
+//   color: #161616;
+//   opacity: 1;
+// }
 
 .cursor-pointer {
   cursor: pointer;
@@ -402,7 +405,7 @@ button.grid-button {
 /* ======= Collor Style Start ======= */
 
 .primary-color {
-  color: $primary-color;
+  color: #FF7823;
 }
 
 /* ======= Button Style Start ======= */
@@ -421,7 +424,7 @@ button.grid-button {
 
 .button-primary {
   border: 0px;
-  background: #30804e 0% 0% no-repeat padding-box;
+  background: #FF7823 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #0d7d0929;
   border-radius: 4px;
   cursor: pointer;
@@ -456,7 +459,7 @@ button.grid-button {
 /* ======= Icons Style ======= */
 
 .icon-check {
-  color: $primary-color;
+  color: #FF7823;
 }
 
 /* Table */
@@ -503,7 +506,7 @@ div.table-responsive {
       & tr {
         font-size: 12px;
         &:hover {
-          background-color: #30804e !important;
+          background-color: #FF7823 !important;
           color: #fff;
           cursor: pointer;
         }
@@ -572,7 +575,7 @@ div.pager {
 }
 
 .checked-table {
-  background-color: #30804e !important;
+  background-color: #FF7823 !important;
   color: #fff;
   cursor: pointer;
 }
