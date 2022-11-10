@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
 import { Trilha } from 'src/app/models/trilha.model';
+import { User } from 'src/app/models/user.model';
 import { TrilhaService } from 'src/app/services/trilha.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,10 +13,11 @@ import { TrilhaService } from 'src/app/services/trilha.service';
 export class CadastroComponent implements OnInit {
   hide = true;
   cadastroForm!: FormGroup;
-  trilhas: Trilha[]= [];
+  trilhas: Trilha[] = [];
 
   constructor(private fb: FormBuilder,
-    private trilhaService: TrilhaService) { }
+    private trilhaService: TrilhaService,
+    private userService: UserService,) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -24,22 +27,45 @@ export class CadastroComponent implements OnInit {
   createForm(): void {
     // const email = new FormControl('', [Validators.required, CustomValidatorsHelpers.validEmail]);
     // const confirmarSenha = new FormControl('', [Validators.required,  CustomValidators.equalTo(email)]);
-    
+
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
       email: ['', [Validators.required]],
       senha: ['', [Validators.required]],
       confirmarSenha: ['', [Validators.required]],
       trilha: ['', [Validators.required]],
-      
+
       checkboxLgpd: ['', [Validators.required]],
     });
   }
 
-  adicionarConta(): void {}
+  adicionarConta(): void {
+    const trilhas = this.trilhas.filter(x => x.selecionada);
+    let user: User = {
+      nome: this.cadastroForm.get('nome')?.value,
+      email: this.cadastroForm.get('email')?.value,
+      senha: this.cadastroForm.get('senha')?.value,
+      trilhas: []
+    }
+
+    trilhas.forEach(trilhaFiltrada => {
+      user.trilhas.push(trilhaFiltrada);
+    });
+
+
+    this.userService.cadastrarUsuario(user)
+      .subscribe(response => {
+        this.cadastroForm.reset();
+        // navegar pra HOME
+      })
+  }
 
   get formControls() {
     return this.cadastroForm.controls;
+  }
+
+  selecionarTrilha(event: any, trilha: Trilha): void {
+    trilha.selecionada = event.currentTarget.checked;
   }
 
   obterTrilha(): void {

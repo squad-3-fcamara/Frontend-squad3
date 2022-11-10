@@ -12,7 +12,6 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  hide = true;
   loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -31,17 +30,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    let trilha: any[] = [];
-    trilha.push("fullstack");
-
-    const usuario: User = {
-      nome: "Lucy",
-      email: "teste@gmail.com",
-      senha: "Teste@1234",
-      trilhas: trilha
-    };
-    this.userService.cadastrarUsuario(usuario)
+   
+    const login = this.loginForm.getRawValue();
+    this.userService.login(login)
       .subscribe(x => {
+        //navegar pra HOME
         console.log(x);
       })
   }
