@@ -31,6 +31,8 @@ export class CadastroComponent implements OnInit {
       senha: ['', [Validators.required]],
       confirmarSenha: ['', [Validators.required]],
       trilha: ['', [Validators.required]],
+      
+      checkboxLgpd: ['', [Validators.required]],
     });
   }
 

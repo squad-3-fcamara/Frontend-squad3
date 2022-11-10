@@ -49,7 +49,7 @@ $CoreSystem-theme: mat.define-light-theme(
 
 @import '~@angular/material/theming';
 $custom-typography: mat-typography-config(
-  $font-family: 'Intelo',
+  $font-family: 'Montserrat-Regular',
 );
 @include mat-core($custom-typography);
 
@@ -61,7 +61,7 @@ $custom-typography: mat-typography-config(
 html,
 body {
   height: 100%;
-  font: normal normal medium 14px/24px Intelo !important;
+  font: 'Montserrat-Regular';
 }
 button {
   cursor: pointer !important;
@@ -390,13 +390,13 @@ button.grid-button {
   }
 }
 
-.p-title {
-  text-align: left;
-  font: normal normal bold 16px/24px Intelo;
-  letter-spacing: 0.15px;
-  color: #161616;
-  opacity: 1;
-}
+// .p-title {
+//   text-align: left;
+//   font: normal normal bold 16px/24px Intelo;
+//   letter-spacing: 0.15px;
+//   color: #161616;
+//   opacity: 1;
+// }
 
 .cursor-pointer {
   cursor: pointer;
