@@ -21,4 +21,9 @@ export class UserService extends BaseService {
     login(login: Login) {
         return this._post<any>(`https://orange-squad03.herokuapp.com/usuario/login`, login);
     }
+
+    
+    getUser() {
+        return this._get<any>(`https://orange-squad03.herokuapp.com/usuario`);
+    }
 }

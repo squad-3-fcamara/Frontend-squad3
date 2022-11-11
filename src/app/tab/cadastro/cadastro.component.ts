@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Trilha } from 'src/app/models/trilha.model';
 import { User } from 'src/app/models/user.model';
 import { TrilhaService } from 'src/app/services/trilha.service';
@@ -17,7 +18,8 @@ export class CadastroComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private trilhaService: TrilhaService,
-    private userService: UserService,) { }
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -57,6 +59,7 @@ export class CadastroComponent implements OnInit {
       .subscribe(response => {
         this.cadastroForm.reset();
         // navegar pra HOME
+        this.router.navigate([`/home`])
       })
   }
 

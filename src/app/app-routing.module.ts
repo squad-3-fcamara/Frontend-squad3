@@ -1,3 +1,4 @@
+import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-perfil.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdicionarConteudoComponent } from './administrador/adicionar-conteudo/adicionar-conteudo.component';
@@ -7,6 +8,7 @@ import { TabLoginCadastroComponent } from './tab/tab-login-cadastro/tab-login-ca
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: TabLoginCadastroComponent },
+  {path: 'dashboard-perfil', component: DashboardPerfilComponent},
   {path: 'adicionar-conteudo', component: AdicionarConteudoComponent},
   {path: 'adicionar-trilha', component: AdicionarTrilhaComponent},
 ];
