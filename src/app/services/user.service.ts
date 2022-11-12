@@ -5,6 +5,7 @@ import { Login } from "../models/login.model";
 import { User } from "../models/user.model";
 import { UsuarioResponse } from "../models/usuario-response.model";
 import { BaseService } from "./base.service";
+import { SnackBarService } from "./snack-bar.service";
 
 
 @Injectable({
@@ -12,8 +13,8 @@ import { BaseService } from "./base.service";
 })
 
 export class UserService extends BaseService {
-    constructor(http: HttpClient, ) {
-        super(http);
+    constructor(http: HttpClient, snackBarService: SnackBarService,) {
+        super(http, snackBarService);
     }
 
     cadastrarUsuario(usuario: User) {
@@ -28,5 +29,16 @@ export class UserService extends BaseService {
     getInscricoesUser() {
         const httpOptions = this.obterAuthHeaderJson();
         return this._get<Inscricoes>(`https://orange-squad03.herokuapp.com/usuario`, httpOptions);
+    }
+
+    private cadastrarExemploComHeaders(entity: any) {
+        let params = new HttpParams();
+        const httpOptions = {
+            headers: this.obterAuthHeaderJson(), 
+            body: entity,
+            params: params
+        };
+
+        return this._post<Inscricoes>(`https://orange-squad03.herokuapp.com/usuario`, httpOptions);
     }
 }

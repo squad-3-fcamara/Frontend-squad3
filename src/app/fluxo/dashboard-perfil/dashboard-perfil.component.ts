@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user.model';
 import { TrilhaService } from 'src/app/services/trilha.service';
 import { Component, OnInit } from '@angular/core';
 import { Inscricoes } from 'src/app/models/inscricoes.model';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-dashboard-perfil',
@@ -14,15 +15,28 @@ export class DashboardPerfilComponent implements OnInit {
   inscricoes!: Inscricoes;
   constructor(
     private trilhaService: TrilhaService,
+    private dialogService: DialogService,
     private userService: UserService) { }
 
   ngOnInit(): void {
+    this.listarTrilhasUsuario();
+  }
+
+  listarTrilhasUsuario(): void {
     this.userService.getInscricoesUser().subscribe(response => [
       this.inscricoes = response
     ])
   }
 
-  //BUSCAR ENDPOINT DE TRILHAS NO README;
-  // PEGAR NOME DO USUARIO E PASSAR P/ HTML
-  abrirModal(): void {}
+  adicionarTrilhas(): void {
+    const data = {
+      title: 'Selecionar trilhas',
+      message: 'Selecione suas trilhas',
+    };
+
+    this.dialogService.openSelecionarTrilhas(data);
+    result: () => {
+      this.listarTrilhasUsuario();
+    }
+  }
 }

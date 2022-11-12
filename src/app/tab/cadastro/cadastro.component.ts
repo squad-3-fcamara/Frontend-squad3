@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, MinLengthValidator, Validators } f
 import { Router } from '@angular/router';
 import { Trilha } from 'src/app/models/trilha.model';
 import { User } from 'src/app/models/user.model';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { TrilhaService } from 'src/app/services/trilha.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,6 +20,7 @@ export class CadastroComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private trilhaService: TrilhaService,
     private userService: UserService,
+    private snackBarService: SnackBarService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -51,15 +53,18 @@ export class CadastroComponent implements OnInit {
     }
 
     trilhas.forEach(trilhaFiltrada => {
-      user.trilhas.push(trilhaFiltrada);
+      user.trilhas.push(trilhaFiltrada.id);
     });
 
 
     this.userService.cadastrarUsuario(user)
       .subscribe(response => {
         this.cadastroForm.reset();
-        // navegar pra HOME
-        this.router.navigate([`/home`])
+        if (response != null) {
+          this.snackBarService.openSuccess(['Bem vindo!']);
+          this.userService.LocalStorage.salvarDadosLocaisUsuario(response);
+          this.router.navigate(['/dashboard-perfil']);
+        }
       })
   }
 

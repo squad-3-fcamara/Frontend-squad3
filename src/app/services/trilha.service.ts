@@ -2,6 +2,7 @@ import { Trilha } from './../models/trilha.model';
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BaseService } from "./base.service";
+import { SnackBarService } from './snack-bar.service';
 
 
 @Injectable({
@@ -9,8 +10,8 @@ import { BaseService } from "./base.service";
 })
 
 export class TrilhaService extends BaseService {
-    constructor(http: HttpClient, ) {
-        super(http);
+    constructor(http: HttpClient, snackBarService: SnackBarService) {
+        super(http, snackBarService);
     }
 
     obterTrilhas() {
