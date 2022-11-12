@@ -72,6 +72,7 @@ button {
   &:disabled,
   button[disabled] {
     opacity: 0.5;
+    box-shadow: none !important;
   }
   & .mat-icon {
     background-repeat: no-repeat;
@@ -82,21 +83,25 @@ button {
     font-size: 26px;
   }
   &.btn {
-    border: 0px;
-    box-shadow: 0px 2px 2px #0d7d0929;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #fff;
-    height: 33px;
-    background: $default-btn-color 0% 0% no-repeat padding-box;
-    padding: 2px 20px;
+    font-family: 'Montserrat-Regular';
+    font-size: 14px;
+    color: #FFFBF9;
+    background: rgba(255, 120, 35, 0.2);
+    border: 2px solid #FF7823;
+    box-shadow: 0px 0px 11px #FF7823;
+    border-radius: 24px;
   }
-  &.btn :hover {
-    color: #FF7823 !important;
+  &.btn:hover {
+    font-family: 'Montserrat-Regular';
+    font-size: 14px;
+    color: #FFFBF9;
+    background: rgba(255, 120, 35, 0.2);
+    border: 2px solid #FF7823;
+    box-shadow: 0px 0px 11px #FF7823;
+    border-radius: 24px;
   }
   &.btn-default {
     border: 0px;
-    box-shadow: 0px 2px 2px #0d7d0929;
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
@@ -107,7 +112,6 @@ button {
   }
   &.btn-danger {
     border: 0px;
-    box-shadow: 0px 2px 2px #0d7d0929;
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
@@ -303,9 +307,6 @@ div[fxLayoutAlign='start top'] {
   }
 }
 
-.snackbar-info {
-  background-color: $info-color;
-}
 .snackbar-warning {
   background-color: rgb(241 228 138);
   & span {
@@ -341,18 +342,11 @@ span {
 }
 
 button.grid-button {
-  background: transparent !important;
   border: 0 !important;
   position: relative;
   width: 30px;
   height: 30px;
   float: left;
-  :hover {
-    background: #d3d3d3;
-    border: none;
-    border-radius: 15px;
-    padding: 3px;
-  }
   & mat-icon {
     font-size: 24px;
     height: 30px;
@@ -390,14 +384,6 @@ button.grid-button {
   }
 }
 
-// .p-title {
-//   text-align: left;
-//   font: normal normal bold 16px/24px Intelo;
-//   letter-spacing: 0.15px;
-//   color: #161616;
-//   opacity: 1;
-// }
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -413,7 +399,7 @@ button.grid-button {
 .button-secondary {
   border: 0px;
   background: #98a283 0% 0% no-repeat padding-box;
-  box-shadow: 0px 2px 2px #0d7d0929;
+  // box-shadow: 0px 2px 2px #0d7d0929;
   border-radius: 4px;
   cursor: pointer;
   color: #fff;
@@ -578,4 +564,8 @@ div.pager {
   background-color: #FF7823 !important;
   color: #fff;
   cursor: pointer;
+}
+
+.container {
+  padding: 20px;
 }

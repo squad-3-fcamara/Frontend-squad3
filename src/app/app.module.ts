@@ -16,6 +16,7 @@ import { AdicionarModuloComponent } from './administrador/adicionar-modulo/adici
 import { MenuComponent } from './navegacao/menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarLoginCadastroComponent } from './tab/navbar-login-cadastro/navbar-login-cadastro.component';
+import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-perfil.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavbarLoginCadastroComponent } from './tab/navbar-login-cadastro/navbar
     AdicionarCursoComponent,
     AdicionarModuloComponent,
     MenuComponent,
-    NavbarLoginCadastroComponent
+    NavbarLoginCadastroComponent,
+    DashboardPerfilComponent,
   ],
   imports: [
     BrowserModule,

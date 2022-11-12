@@ -29,21 +29,23 @@
                 <div class="col-md-10 mt-3">
                     <label class="form-label">Senha</label>
                     <input class="form-control" type="password" placeholder="Digite sua senha" name="senha"
-                        formControlName="senha" autocomplete="off">
+                        formControlName="senha" minlength="8" autocomplete="off">
+                        <!-- <div *ngIf="formControls ['senha']?.invalid">
+                            Campo obrigatório
+                        </div> -->
                 </div>
 
                 <div class="col-md-10 mt-3">
                     <label class="form-label">Confirmar senha</label>
                     <input class="form-control" type="password" placeholder="Digite sua senha" name="confirmarSenha"
-                        formControlName="confirmarSenha" autocomplete="off">
+                        formControlName="confirmarSenha" minlength="8" autocomplete="off">
                 </div>
-
 
                 <div class="col-md-10 mt-5">
                     <label class="form-label">Qual trilha você deseja ter acesso?</label>
                     <div class="check mx-5">
-                        <ng-container *ngFor="let item of trilhas">
-                            <p><input formControlName="trilha" type="checkbox" > {{ item.nome}}</p>
+                        <ng-container *ngFor="let item of trilhas; index i">
+                            <p><input formControlName="trilha" name="i" (change)="selecionarTrilha($event, item)" type="checkbox" > {{ item.nome}}</p>
                         </ng-container>
                     </div>
                 </div> <br>
@@ -54,7 +56,7 @@
                 
                 <div style="display: flex;" class="form-group justify-content-center">
                     <div class="col-md-4 col-md-offset-2 mt-3">
-                        <span><button [disabled]="cadastroForm.invalid" class="btn btn-success" id="registrar" type="submit">Criar conta</button></span>
+                        <span><button [disabled]="cadastroForm.invalid" class="btn" type="submit">Criar conta</button></span>
                     </div>
                 </div>
             </form>
