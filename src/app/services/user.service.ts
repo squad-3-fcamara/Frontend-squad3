@@ -1,8 +1,11 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Inscricoes } from "../models/inscricoes.model";
 import { Login } from "../models/login.model";
 import { User } from "../models/user.model";
+import { UsuarioResponse } from "../models/usuario-response.model";
 import { BaseService } from "./base.service";
+import { SnackBarService } from "./snack-bar.service";
 
 
 @Injectable({
@@ -10,8 +13,8 @@ import { BaseService } from "./base.service";
 })
 
 export class UserService extends BaseService {
-    constructor(http: HttpClient, ) {
-        super(http);
+    constructor(http: HttpClient, snackBarService: SnackBarService,) {
+        super(http, snackBarService);
     }
 
     cadastrarUsuario(usuario: User) {
@@ -19,11 +22,23 @@ export class UserService extends BaseService {
     }
 
     login(login: Login) {
-        return this._post<any>(`https://orange-squad03.herokuapp.com/usuario/login`, login);
+        return this._post<UsuarioResponse>(`https://orange-squad03.herokuapp.com/usuario/login`, login);
     }
 
     
-    getUser() {
-        return this._get<any>(`https://orange-squad03.herokuapp.com/usuario`);
+    getInscricoesUser() {
+        const httpOptions = this.obterAuthHeaderJson();
+        return this._get<Inscricoes>(`https://orange-squad03.herokuapp.com/usuario`, httpOptions);
+    }
+
+    private cadastrarExemploComHeaders(entity: any) {
+        let params = new HttpParams();
+        const httpOptions = {
+            headers: this.obterAuthHeaderJson(), 
+            body: entity,
+            params: params
+        };
+
+        return this._post<Inscricoes>(`https://orange-squad03.herokuapp.com/usuario`, httpOptions);
     }
 }

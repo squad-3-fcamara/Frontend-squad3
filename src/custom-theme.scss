@@ -569,3 +569,46 @@ div.pager {
 .container {
   padding: 20px;
 }
+
+.snackbar-error {
+  background-color: rgba(227, 0, 0, 0.2);
+  opacity: 0.1;
+  & span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #e30000;
+  }
+}
+
+.snackbar-success {
+  background-color: rgb(193 232 192);
+  opacity: 0.1;
+  & span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #225d38;
+  }
+}
+
+.snackbar-info {
+  color: #004085;
+  background-color: #cce5ff;
+  border: 1px solid #86b2e1 !important;
+}
+.snackbar-warning {
+  background-color: rgb(241 228 138);
+  & span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #997f2f;
+  }
+}
