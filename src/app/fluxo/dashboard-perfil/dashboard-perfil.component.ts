@@ -20,9 +20,8 @@ export class DashboardPerfilComponent implements OnInit {
       console.log(response)
     ])
 
-
   }
   //BUSCAR ENDPOINT DE TRILHAS NO README;
   // PEGAR NOME DO USUARIO E PASSAR P/ HTML
-
+  abrirModal(): void {}
 }
