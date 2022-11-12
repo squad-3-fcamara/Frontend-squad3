@@ -2,14 +2,27 @@ import { HttpClient, HttpContext, HttpHeaders, HttpParams } from "@angular/commo
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
+import { LocalStorageUtils } from "../shared/helpers/localstorage";
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class BaseService {
+export abstract class BaseService {
+    public LocalStorage = new LocalStorageUtils();
+
     constructor(protected http: HttpClient,
-        ) { }
+    ) { }
+
+    protected obterAuthHeaderJson() {
+        return {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.LocalStorage.obterTokenUsuario()}`
+            })
+        };
+    }
+
     protected _get<T>(url: string, options?: {
         headers?: HttpHeaders | {
             [header: string]: string | string[];

@@ -8,9 +8,9 @@ import { TabLoginCadastroComponent } from './tab/tab-login-cadastro/tab-login-ca
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: TabLoginCadastroComponent },
-  {path: 'dashboard-perfil', component: DashboardPerfilComponent},
-  {path: 'adicionar-conteudo', component: AdicionarConteudoComponent},
-  {path: 'adicionar-trilha', component: AdicionarTrilhaComponent},
+  { path: 'dashboard-perfil', component: DashboardPerfilComponent },
+  { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
+  { path: 'adicionar-trilha', component: AdicionarTrilhaComponent },
 ];
 
 @NgModule({

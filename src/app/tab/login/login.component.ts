@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Trilha } from 'src/app/models/trilha.model';
 import { User } from 'src/app/models/user.model';
 import { TrilhaService } from 'src/app/services/trilha.service';
@@ -16,6 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private userService: UserService,
+    private router: Router,
+    // private toastr: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -33,9 +36,9 @@ export class LoginComponent implements OnInit {
    
     const login = this.loginForm.getRawValue();
     this.userService.login(login)
-      .subscribe(x => {
-        //navegar pra HOME
-        console.log(x);
+      .subscribe(response => {
+        this.userService.LocalStorage.salvarDadosLocaisUsuario(response);
+        this.router.navigate(['/dashboard-perfil']);
       })
   }
 
