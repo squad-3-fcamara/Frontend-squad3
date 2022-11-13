@@ -10,7 +10,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
     constructor(private snackBar: MatSnackBar) { }
     public openWarning(messages: string[]) {
       this.snackBar.openFromComponent(SnackBarComponent, {
-        duration: 5 * 1000,
+        duration: 3 * 1000,
         data: {
           errors: messages
         },
@@ -21,7 +21,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
     }
     public openSuccess(messages: string[]) {
       this.snackBar.openFromComponent(SnackBarComponent, {
-        duration: 5 * 1000,
+        duration: 3 * 1000,
         data: {
           errors: messages
         },
@@ -32,7 +32,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
     }
     public openInfo(message: string[]) {
       this.snackBar.openFromComponent(SnackBarComponent, {
-        duration: 5 * 10000,
+        duration: 3 * 10000,
         data: {
           errors: message
         },
@@ -43,7 +43,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
     }
     public openError(message: string[]) {
       this.snackBar.openFromComponent(SnackBarComponent, {
-        duration: 5 * 1000,
+        duration: 3 * 1000,
         data: {
           errors: message
         },

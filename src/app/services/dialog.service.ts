@@ -15,7 +15,7 @@ export class DialogService {
 
     openSelecionarTrilhas(props: DialogData): void {
         const dialogRef = this.dialog.open(ModalInscricaoTrilhasComponent, {
-            width: '353px',
+            width: '353px', 
             data: props
         });
 

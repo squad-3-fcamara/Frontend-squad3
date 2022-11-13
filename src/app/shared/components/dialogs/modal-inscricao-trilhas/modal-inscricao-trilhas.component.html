@@ -1,4 +1,10 @@
-<div fxLayout="column" fxLayoutGap.xs="16px" fxLayoutGap.md="24px" fxLayoutGap.lg="32px" fxLayoutGap.xl="40px">
-
-    <button mat-flat-button color="primary" (click)="fechar()">FECHAR</button>
+<div class="modal-trilhas" fxLayout="column" fxLayoutGap.xs="16px"
+    fxLayoutGap.md="24px" fxLayoutGap.lg="32px" fxLayoutGap.xl="40px">
+    <div>
+        <strong>
+            <p class="titulo-modal">Escolha a próxima trilha que você quer seguir:</p>
+        </strong>
+    </div>
+    <strong><button class="btn-primario" (click)="fechar()">Cancelar</button></strong>
+    <button [disabled]="" class="add-trilha">Adicionar trilha</button>
 </div>

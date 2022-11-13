@@ -8,3 +8,44 @@
 span {
     font-size: 16px;
 }
+
+
+.modal-trilhas {
+    background: #FFFBF9;
+    border-radius: 22px;
+}
+
+.titulo-modal {
+    font-size: 30px;
+    color: #000;
+    font-weight: 700;
+}
+
+.btn-primario {
+    font-size: 14px;
+    color: #000;
+    border-radius: 20px;
+    border: 1px solid #FFA000;
+    box-shadow: 0px 0px 1px #FFA000;
+    background: transparent;
+    padding: 10px;
+}
+
+.add-trilha {
+    font-size: 14px;
+    color: #212121;
+    background: rgba(255, 120, 35, 0.2);
+    border: 2px solid #FF7823;
+    box-shadow: 0px 0px 11px #FF7823;
+    border-radius: 20px;
+    width: 162px;
+    padding: 10px;
+}
+
+.add-trilha:disabled {
+    background: rgba(217, 217, 217, 0.1);
+    border: 2px solid #757170;
+    border-radius: 24px;
+    font-size: 14px;
+    color: #212121;
+}
