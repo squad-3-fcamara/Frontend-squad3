@@ -23,6 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './home/header/header.component';
 import { CardTrilhaComponent } from './home/card-trilha/card-trilha.component';
 import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferenciais.component';
+import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoimentos.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferen
     HeaderComponent,
     CardTrilhaComponent,
     CardDiferenciaisComponent,
+    CardDepoimentosComponent,
   ],
   imports: [
     BrowserModule,
