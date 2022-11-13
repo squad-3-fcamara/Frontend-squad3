@@ -1,0 +1,48 @@
+<app-header></app-header>
+<main>
+  <section class="introducao">
+    <div class="texto">
+      <h1>
+        QUER MIGRAR PRA <span>ÁREA TECH</span> E NÃO SABE POR ONDE COMEÇAR?
+      </h1>
+      <h3>Fique tranquilo, a gente te mostra a <b>trilha certa!</b></h3>
+      <button>Começar trilha</button>
+    </div>
+  </section>
+  <section class="cards-trilhas" id="trilhas">
+    <app-card-trilha
+      *ngFor="let trilha of trilhas"
+      [titulo]="trilha.titulo"
+      [descricao]="trilha.descricao"
+    ></app-card-trilha>
+  </section>
+
+  <section class="nossaTrilha-container">
+    <h3>Pra quem é nossa trilha?</h3>
+    <div class="nossaTrilha-card">
+      <img src="/assets/medias/FotoHome_MeninaCapuzNossaTrilha.png" />
+      <div class="texto">
+        <p>Sente curiosidade sobre a carreira Tech</p>
+        <p>Quer dominar do zero os conceitos e técnicas da área</p>
+        <p>Procura conteúdo de qualidade e gratuito</p>
+        <p>Está migrando de carreira para a área tech</p>
+        <p>
+          Sente que com o apoio de uma comunidade vitaminada irá se desenvolver
+          mais
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="diferenciais-container">
+    <h3>Nossos diferenciais</h3>
+    <div class="diferenciais-cards">
+      <app-card-diferenciais
+        *ngFor="let diferencial of diferenciais"
+        [ordem]="diferencial.ordem"
+        [titulo]="diferencial.titulo"
+        [descricao]="diferencial.descricao"
+      ></app-card-diferenciais>
+    </div>
+  </section>
+</main>
