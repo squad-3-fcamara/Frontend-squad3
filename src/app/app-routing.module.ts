@@ -1,3 +1,4 @@
+import { AulasComponent } from './fluxo/aulas/aulas.component';
 import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-perfil.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'dashboard-perfil', component: DashboardPerfilComponent },
   { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
   { path: 'adicionar-trilha', component: AdicionarTrilhaComponent },
+  {path: 'aulas', component: AulasComponent}
 ];
 
 @NgModule({

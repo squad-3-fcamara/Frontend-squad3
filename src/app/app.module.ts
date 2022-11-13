@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarLoginCadastroComponent } from './tab/navbar-login-cadastro/navbar-login-cadastro.component';
 import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-perfil.component';
 import { DialogService } from './services/dialog.service';
+import { AulasComponent } from './fluxo/aulas/aulas.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DialogService } from './services/dialog.service';
     MenuComponent,
     NavbarLoginCadastroComponent,
     DashboardPerfilComponent,
+    AulasComponent,
   ],
   imports: [
     BrowserModule,
