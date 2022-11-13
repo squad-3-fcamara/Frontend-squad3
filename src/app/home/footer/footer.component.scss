@@ -1,0 +1,57 @@
+
+.container{
+  background-color: #F7F3F1;
+  position: relative;
+  display: flex;
+  height: 467px;
+
+  padding: 60px 229px 0px 128px;
+  justify-content: space-between;
+
+}
+
+.redessociais{
+
+  display: flex;
+  margin-top: 20px;
+align-items: center;
+ list-style: none;
+gap: 20px;
+
+}
+
+.listaclicavel {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FF7823;
+
+
+}
+
+.listaclicavel ul {
+  list-style: none;
+
+}
+
+.listaclicavel ul li {
+  margin-bottom: 20px;
+}
+
+
+.copyright{
+
+font-family: Montserrat;
+font-size: 12px;
+font-weight: 400;
+line-height: 15px;
+letter-spacing: 0em;
+text-align: left;
+position: absolute;
+bottom: 52px;
+
+
+}
+
