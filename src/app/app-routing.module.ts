@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdicionarConteudoComponent } from './administrador/adicionar-conteudo/adicionar-conteudo.component';
 import { AdicionarTrilhaComponent } from './administrador/adicionar-trilha/adicionar-trilha.component';
 import { TabLoginCadastroComponent } from './tab/tab-login-cadastro/tab-login-cadastro.component';
+import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,11 +13,12 @@ const routes: Routes = [
   { path: 'dashboard-perfil', component: DashboardPerfilComponent },
   { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
   { path: 'adicionar-trilha', component: AdicionarTrilhaComponent },
-  {path: 'aulas', component: AulasComponent}
+  { path: 'aulas', component: AulasComponent },
+  { path: 'detalhe-trilha', component: DetalheTrilhaComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
