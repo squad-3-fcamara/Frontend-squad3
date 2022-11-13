@@ -5,9 +5,11 @@ import { AdicionarConteudoComponent } from './administrador/adicionar-conteudo/a
 import { AdicionarTrilhaComponent } from './administrador/adicionar-trilha/adicionar-trilha.component';
 import { TabLoginCadastroComponent } from './tab/tab-login-cadastro/tab-login-cadastro.component';
 import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: TabLoginCadastroComponent },
   { path: 'dashboard-perfil', component: DashboardPerfilComponent },
   { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
