@@ -94,6 +94,7 @@ import { ModalInscricaoTrilhasComponent } from './components/dialogs/modal-inscr
 		MatChipsModule,
 		MatSnackBarModule,
 		MatAutocompleteModule
+
 	],
 	declarations: [
    SnackBarComponent,
