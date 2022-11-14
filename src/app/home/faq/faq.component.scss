@@ -1,0 +1,34 @@
+.faq-container {
+  margin: 124px 0 180px;
+  h3 {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 40px;
+    color: #fffbf9;
+  }
+
+  .collapse-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    color: #ffffff;
+  }
+
+  .collapse-body {
+    p {
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 20px;
+      color: #ffffff;
+      margin-bottom: 48px;
+    }
+  }
+}
