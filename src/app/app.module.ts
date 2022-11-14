@@ -24,6 +24,7 @@ import { HeaderComponent } from './home/header/header.component';
 import { CardTrilhaComponent } from './home/card-trilha/card-trilha.component';
 import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferenciais.component';
 import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoimentos.component';
+import { FaqComponent } from './home/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoiment
     CardTrilhaComponent,
     CardDiferenciaisComponent,
     CardDepoimentosComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,
