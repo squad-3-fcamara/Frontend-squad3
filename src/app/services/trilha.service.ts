@@ -18,8 +18,12 @@ export class TrilhaService extends BaseService {
   }
 
   oberDetalhesTrilhas(id: number) {
-
     const httpOptions = this.obterAuthHeaderJson();
     return this._get<DetalheTrilha>(`https://orange-squad03.herokuapp.com/trilhas/${id}`, httpOptions);
+  }
+
+  obterAulas(idtrilha: number, idAula: number) {
+    const httpOptions = this.obterAuthHeaderJson();
+    return this._get<DetalheTrilha>(`https://orange-squad03.herokuapp.com/trilhas/${idtrilha}/aulas/${idAula}`, httpOptions);
   }
 }

@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'dashboard-perfil', component: DashboardPerfilComponent },
   { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
   { path: 'adicionar-trilha', component: AdicionarTrilhaComponent },
-  { path: 'aulas/:id', component: AulasComponent },
+  { path: 'aulas/:idTrilha/:idAula', component: AulasComponent },
   { path: 'detalhe-trilha/:id', component: DetalheTrilhaComponent }
 ];
 

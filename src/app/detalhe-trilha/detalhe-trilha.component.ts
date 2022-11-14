@@ -39,8 +39,10 @@ export class DetalheTrilhaComponent implements OnInit {
       .subscribe((detalhe) => (this.detalheTrilha = detalhe));
   }
 
-  continuarAula(aula: Aula): void {
-    this.router.navigate([`/aulas/${aula.id}`]);
+  continuarAula(aula: Aula, detalheTrilha: DetalheTrilha): void {
+    const idAula = aula.id;
+    const idTrilha = detalheTrilha.trilha.id;
+    this.router.navigate([`/aulas/${idTrilha}/${idAula}`]);
   }
 
   adicionarTrilhas(): void {

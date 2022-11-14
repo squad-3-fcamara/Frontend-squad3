@@ -1,3 +1,4 @@
+import { TrilhaService } from './../../services/trilha.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Aula } from 'src/app/models/aula.model';
@@ -13,28 +14,28 @@ export class AulasComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer!: ElementRef;
   videoSource = '//www.youtube.com/watch?v=_RsYz_iKP4k';
 
-  aula!: Aula;
+  aula!: any;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private router: Router,
-              private conteudoService: ConteudoService) { }
+    private router: Router,
+    private trilhaService: TrilhaService) { }
 
   ngOnInit(): void {
 
-    const usuario = this.conteudoService.LocalStorage.obterUsuario();
+    const usuario = this.trilhaService.LocalStorage.obterUsuario();
     if (usuario == null) {
       this.router.navigate(['/login']);
       return;
     }
-    
 
-    if (this.activatedRoute.snapshot.params['id']) {
-      this.obterConteudo(this.activatedRoute.snapshot.params['id']);
-    }
+    const idAula = this.activatedRoute.snapshot.params['idAula'];
+    const idTrilha = this.activatedRoute.snapshot.params['idTrilha'];
+    this.obterConteudo(idTrilha, idAula);
+
   }
 
-  obterConteudo(id: number): void {
-    this.conteudoService.obterConteudos(id).subscribe(response => {
+  obterConteudo(idTrilha: number, idAula: number): void {
+    this.trilhaService.obterAulas(idTrilha, idAula).subscribe(response => {
       this.aula = response;
     })
   }

@@ -45,7 +45,7 @@
       <div class="collapse-body">
         <ul>
           <li *ngFor="let aula of modulo.aulas">
-            {{ aula.nome }} <button (click)="continuarAula(aula)">Ir para a aula</button>
+            {{ aula.nome }} <button (click)="continuarAula(aula, detalheTrilha)">Ir para a aula</button>
           </li>
         </ul>
       </div>
