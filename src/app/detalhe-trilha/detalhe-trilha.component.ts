@@ -1,9 +1,11 @@
-import { Usuario } from './../models/usuario-response.model';
-import { User } from './../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { DetalheTrilha } from '../models/detalheTrilha.model';
 import { TrilhaService } from '../services/trilha.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Aula } from '../models/aula.model';
+import { DialogService } from '../services/dialog.service';
+import { UserService } from '../services/user.service';
+import { Inscricoes } from '../models/inscricoes.model';
 
 @Component({
   selector: 'app-detalhe-trilha',
@@ -14,24 +16,47 @@ export class DetalheTrilhaComponent implements OnInit {
   detalheTrilha!: DetalheTrilha;
 
   constructor(private trilhaService: TrilhaService,
-                private router: Router) {
-  }
-
-  getDetalhesTrilha(id: number): void {
-    const usuario = this.trilhaService.LocalStorage.obterUsuario();
-
-    this.trilhaService
-      .oberDetalhesTrilhas(usuario.id)
-      .subscribe((detalhe) => (this.detalheTrilha = detalhe));
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private dialogService: DialogService,
+    private userService: UserService) {
   }
 
   ngOnInit(): void {
     const usuario = this.trilhaService.LocalStorage.obterUsuario();
-    if (usuario == null){
+    if (usuario == null) {
       this.router.navigate(['/login']);
       return;
     }
 
-    this.getDetalhesTrilha(usuario.id);
+    if (this.activatedRoute.snapshot.params['id']) {
+      this.getDetalhesTrilha(this.activatedRoute.snapshot.params['id']);
+    }
   }
+
+  getDetalhesTrilha(id: number): void {
+    this.trilhaService.oberDetalhesTrilhas(id)
+      .subscribe((detalhe) => (this.detalheTrilha = detalhe));
+  }
+
+  continuarAula(aula: Aula): void {
+    this.router.navigate([`/aulas/${aula.id}`]);
+  }
+
+  adicionarTrilhas(): void {
+    const data = {
+      title: 'Selecionar trilhas',
+      message: 'Selecione suas trilhas', 
+    };
+
+    this.dialogService.openSelecionarTrilhas(data);
+    result: () => {
+      this.listarTrilhasUsuario();
+    }
+  }
+
+  listarTrilhasUsuario(): void {
+    this.userService.getInscricoesUser().subscribe(() => {})
+  }
+
 }

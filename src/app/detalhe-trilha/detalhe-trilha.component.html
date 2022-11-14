@@ -1,7 +1,9 @@
 <app-menu></app-menu>
-<h1 class="titulo">
-  TRILHA <span>{{ detalheTrilha.trilha.nome }}</span>
-</h1>
+<ng-container *ngIf="detalheTrilha != undefined">
+  <h1 class="titulo">
+    TRILHA <span>{{ detalheTrilha.trilha.nome }}</span>
+  </h1>
+</ng-container>
 
 <div class="progresso-container">
   <img src="/assets/medias/IconeColmeiaPreenchida.png" />
@@ -23,28 +25,30 @@
   <button>Continuar Trilha</button>
 </div>
 
-<h3 class="subtitulo">Conteúdos da sua trilha:</h3>
-<div class="conteudos-container" *ngFor="let modulo of detalheTrilha.modulos">
-  <p>
-    <a class="collapse-container" data-bs-toggle="collapse" [attr.href]="'#modulo' + modulo.id" aria-expanded="false"
-      [attr.aria-controls]="'modulo' + modulo.id">
-      <div>
-        <div class="collapse-ordem">
-          <img src="/assets/medias/IconeColmeiaPreenchida.png" />
-          <p>{{ modulo.ordem }}</p>
+<ng-container *ngIf="detalheTrilha != undefined">
+  <h3 class="subtitulo">Conteúdos da sua trilha:</h3>
+  <div class="conteudos-container" *ngFor="let modulo of detalheTrilha.modulos">
+    <p>
+      <a class="collapse-container" data-bs-toggle="collapse" [attr.href]="'#modulo' + modulo.id" aria-expanded="false"
+        [attr.aria-controls]="'modulo' + modulo.id">
+        <div>
+          <div class="collapse-ordem">
+            <img src="/assets/medias/IconeColmeiaPreenchida.png" />
+            <p>{{ modulo.ordem }}</p>
+          </div>
+          <p class="collapse-titulo">{{ modulo.nome }}</p>
         </div>
-        <p class="collapse-titulo">{{ modulo.nome }}</p>
+        <img src="/assets/medias/FlechaParaBaixo.svg" />
+      </a>
+    </p>
+    <div class="collapse" [id]="'modulo' + modulo.id">
+      <div class="collapse-body">
+        <ul>
+          <li *ngFor="let aula of modulo.aulas">
+            {{ aula.nome }} <button (click)="continuarAula(aula)">Ir para a aula</button>
+          </li>
+        </ul>
       </div>
-      <img src="/assets/medias/FlechaParaBaixo.svg" />
-    </a>
-  </p>
-  <div class="collapse" [id]="'modulo' + modulo.id">
-    <div class="collapse-body">
-      <ul>
-        <li *ngFor="let aula of modulo.aulas">
-          {{ aula.nome }} <button>Ir para a aula</button>
-        </li>
-      </ul>
     </div>
   </div>
-</div>
+</ng-container>

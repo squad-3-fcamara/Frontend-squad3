@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'dashboard-perfil', component: DashboardPerfilComponent },
   { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
   { path: 'adicionar-trilha', component: AdicionarTrilhaComponent },
-  { path: 'aulas', component: AulasComponent },
-  { path: 'detalhe-trilha', component: DetalheTrilhaComponent }
+  { path: 'aulas/:id', component: AulasComponent },
+  { path: 'detalhe-trilha/:id', component: DetalheTrilhaComponent }
 ];
 
 @NgModule({

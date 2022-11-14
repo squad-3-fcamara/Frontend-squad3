@@ -4,6 +4,9 @@ import { TrilhaService } from 'src/app/services/trilha.service';
 import { Component, OnInit } from '@angular/core';
 import { Inscricoes } from 'src/app/models/inscricoes.model';
 import { DialogService } from 'src/app/services/dialog.service';
+import { trigger } from '@angular/animations';
+import { Router } from '@angular/router';
+import { Trilha } from 'src/app/models/trilha.model';
 
 @Component({
   selector: 'app-dashboard-perfil',
@@ -16,9 +19,16 @@ export class DashboardPerfilComponent implements OnInit {
   constructor(
     private trilhaService: TrilhaService,
     private dialogService: DialogService,
+    private router: Router,
     private userService: UserService) { }
 
   ngOnInit(): void {
+    const usuario = this.trilhaService.LocalStorage.obterUsuario();
+    if (usuario == null) {
+      this.router.navigate(['/login']);
+      return;
+    }
+    
     this.listarTrilhasUsuario();
   }
 
@@ -38,5 +48,9 @@ export class DashboardPerfilComponent implements OnInit {
     result: () => {
       this.listarTrilhasUsuario();
     }
+  }
+
+  continuarTrilha(trilha: Trilha): void {
+    this.router.navigate([`/detalhe-trilha/${trilha.id}`]);
   }
 }

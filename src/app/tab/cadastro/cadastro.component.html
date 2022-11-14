@@ -35,8 +35,8 @@
                 <div class="col-md-10 mt-5">
                     <label class="form-label">Qual trilha você deseja ter acesso?</label>
                     <div class="check mx-5">
-                        <ng-container *ngFor="let item of trilhas; index i">
-                            <p><input formControlName="trilha" name="i" (change)="selecionarTrilha($event, item)" type="checkbox" > {{ item.nome}}</p>
+                        <ng-container *ngFor="let item of trilhas; let index = index">
+                            <p><input formControlName="trilha" name="index" (change)="selecionarTrilha($event, item)" type="checkbox" > {{ item.nome}}</p>
                         </ng-container>
                     </div>
                 </div> <br>
