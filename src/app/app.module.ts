@@ -25,6 +25,7 @@ import { CardTrilhaComponent } from './home/card-trilha/card-trilha.component';
 import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferenciais.component';
 import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoimentos.component';
 import { FaqComponent } from './home/faq/faq.component';
+import { FooterComponent } from './home/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FaqComponent } from './home/faq/faq.component';
     CardDiferenciaisComponent,
     CardDepoimentosComponent,
     FaqComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
