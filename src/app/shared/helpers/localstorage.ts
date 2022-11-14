@@ -2,9 +2,9 @@ import { Usuario, UsuarioResponse } from "src/app/models/usuario-response.model"
 import { StringUtils } from "./string-utils";
 
 export class LocalStorageUtils {
-    
-    public obterUsuario(): string | null {
-        return localStorage.getItem('squad-03.user');
+
+    public obterUsuario(): Usuario {
+        return (JSON.parse(localStorage.getItem('squad-03.user') || '{}') || {}) as Usuario;
     }
 
     public salvarDadosLocaisUsuario(response: UsuarioResponse) {

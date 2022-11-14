@@ -1,57 +1,50 @@
-<main>
-  <div>HEADER</div>
-  <h1 class="titulo">
-    TRILHA <span>{{ trilha.trilha.nome }}</span>
-  </h1>
+<app-menu></app-menu>
+<h1 class="titulo">
+  TRILHA <span>{{ detalheTrilha.trilha.nome }}</span>
+</h1>
 
-  <div class="progresso-container">
-    <img src="/assets/medias/IconeColmeiaPreenchida.png" />
-    <div class="barra"></div>
-    <img src="/assets/medias/IconeColmeiaVazia.svg" />
-    <div class="barra"></div>
-    <img src="/assets/medias/IconeColmeiaVazia.svg" />
-    <div class="barra"></div>
-    <img src="/assets/medias/IconeColmeiaVazia.svg" />
-    <div class="barra"></div>
-    <img src="/assets/medias/IconeColmeiaVazia.svg" />
-    <div class="barra"></div>
-    <img src="/assets/medias/IconeColmeiaVazia.svg" />
-    <div class="barra"></div>
-    <img src="/assets/medias/IconeColmeiaVazia.svg" />
-  </div>
+<div class="progresso-container">
+  <img src="/assets/medias/IconeColmeiaPreenchida.png" />
+  <div class="barra"></div>
+  <img src="/assets/medias/IconeColmeiaVazia.svg" />
+  <div class="barra"></div>
+  <img src="/assets/medias/IconeColmeiaVazia.svg" />
+  <div class="barra"></div>
+  <img src="/assets/medias/IconeColmeiaVazia.svg" />
+  <div class="barra"></div>
+  <img src="/assets/medias/IconeColmeiaVazia.svg" />
+  <div class="barra"></div>
+  <img src="/assets/medias/IconeColmeiaVazia.svg" />
+  <div class="barra"></div>
+  <img src="/assets/medias/IconeColmeiaVazia.svg" />
+</div>
 
-  <div class="botao-container">
-    <button>Continuar Trilha</button>
-  </div>
+<div class="botao-container">
+  <button>Continuar Trilha</button>
+</div>
 
-  <h3 class="subtitulo">Conteúdos da sua trilha:</h3>
-  <div class="conteudos-container" *ngFor="let modulo of trilha.modulos">
-    <p>
-      <a
-        class="collapse-container"
-        data-bs-toggle="collapse"
-        [attr.href]="'#modulo' + modulo.id"
-        aria-expanded="false"
-        [attr.aria-controls]="'modulo' + modulo.id"
-      >
-        <div>
-          <div class="collapse-ordem">
-            <img src="/assets/medias/IconeColmeiaPreenchida.png" />
-            <p>{{ modulo.ordem }}</p>
-          </div>
-          <p class="collapse-titulo">{{ modulo.nome }}</p>
+<h3 class="subtitulo">Conteúdos da sua trilha:</h3>
+<div class="conteudos-container" *ngFor="let modulo of detalheTrilha.modulos">
+  <p>
+    <a class="collapse-container" data-bs-toggle="collapse" [attr.href]="'#modulo' + modulo.id" aria-expanded="false"
+      [attr.aria-controls]="'modulo' + modulo.id">
+      <div>
+        <div class="collapse-ordem">
+          <img src="/assets/medias/IconeColmeiaPreenchida.png" />
+          <p>{{ modulo.ordem }}</p>
         </div>
-        <img src="/assets/medias/FlechaParaBaixo.svg" />
-      </a>
-    </p>
-    <div class="collapse" [id]="'modulo' + modulo.id">
-      <div class="collapse-body">
-        <ul>
-          <li *ngFor="let aula of modulo.aulas">
-            {{ aula.nome }} <button>Ir para a aula</button>
-          </li>
-        </ul>
+        <p class="collapse-titulo">{{ modulo.nome }}</p>
       </div>
+      <img src="/assets/medias/FlechaParaBaixo.svg" />
+    </a>
+  </p>
+  <div class="collapse" [id]="'modulo' + modulo.id">
+    <div class="collapse-body">
+      <ul>
+        <li *ngFor="let aula of modulo.aulas">
+          {{ aula.nome }} <button>Ir para a aula</button>
+        </li>
+      </ul>
     </div>
   </div>
-</main>
+</div>

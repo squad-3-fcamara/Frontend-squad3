@@ -17,15 +17,9 @@ export class TrilhaService extends BaseService {
     return this._get<Trilha[]>(`https://orange-squad03.herokuapp.com/trilhas`);
   }
 
-  oberDetalhesTrilhas() {
-    return this._get<DetalheTrilha>(
-      'https://orange-squad03.herokuapp.com/trilhas/2',
-      {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjY4MzQ3NzI5LCJleHAiOjE2NjgzNzY1Mjl9.t_IQqxfPkBiuIse8Eu-JIDACrfLaIbl6P3F9McDgQmI`,
-        }),
-      }
-    );
+  oberDetalhesTrilhas(id: number) {
+
+    const httpOptions = this.obterAuthHeaderJson();
+    return this._get<DetalheTrilha>(`https://orange-squad03.herokuapp.com/trilhas/${id}`, httpOptions);
   }
 }

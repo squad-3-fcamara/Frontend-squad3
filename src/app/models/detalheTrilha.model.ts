@@ -1,8 +1,6 @@
+import { Trilha } from './trilha.model';
 export interface DetalheTrilha {
-  trilha: {
-    id: number;
-    nome: string;
-  };
+  trilha: Trilha
   modulos: Modulo[];
 }
 
