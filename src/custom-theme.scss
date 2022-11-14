@@ -207,69 +207,6 @@ div[fxLayoutAlign='start top'] {
 ::ng-deep .mat-form-field-subscript-wrapper {
   margin-top: 20px !important;
 }
-.ecom-table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  display: table;
-  border-collapse: collapse;
-  margin: 0px;
-  white-space: nowrap;
-  border-spacing: 0;
-  & thead {
-    & tr {
-      display: table-row;
-      & th {
-        padding: 5px 10px;
-        border-bottom: 1px solid #ccc;
-        width: auto;
-        word-wrap: initial;
-        display: table-cell;
-        line-break: unset;
-        width: auto;
-        white-space: nowrap;
-        overflow: hidden;
-        vertical-align: middle;
-      }
-      color: #000;
-      font-weight: bold;
-      border-bottom: 1px solid #ccc;
-      text-align: left;
-      font-size: 13px;
-    }
-  }
-  & tbody {
-    overflow-y: auto;
-    & tr {
-      font-size: 12px;
-      & td {
-        padding: 5px 10px;
-        word-wrap: initial;
-        display: table-cell;
-        line-break: unset;
-        width: auto;
-        white-space: nowrap;
-        overflow: hidden;
-        vertical-align: middle;
-        text-align: left;
-        &.no-data-found {
-          font-size: 14px;
-          font-weight: bold;
-          text-align: left;
-          vertical-align: top;
-          height: 150px;
-          padding: 20px 10px;
-        }
-      }
-      &:nth-child(even) {
-        background-color: #efefef;
-      }
-      &:nth-child(odd) {
-        background-color: white;
-      }
-    }
-  }
-}
 
 ::ng-deep mat-form-field .mat-form-field {
   &-underline {

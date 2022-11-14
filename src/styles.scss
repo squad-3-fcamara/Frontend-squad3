@@ -81,12 +81,42 @@ $sides: (
 }
 
 
-.mat-header-cell {
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  color: #000 !important;
+// .mat-header-cell {
+//   font-size: 13px !important;
+//   font-weight: 700 !important;
+//   color: #000 !important;
+// }
+
+// tr.mat-header-row {
+//   height: auto !important;
+// }
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: white;
 }
 
-tr.mat-header-row {
-  height: auto !important;
+.mat-tab-group.mat-primary .mat-ink-bar {
+  background: none; 
+ }
+ 
+ .mat-tab-label-disabled  {
+  color: #ffffff !important; 
+  font-weight: 700;
+ font-size: 20px; 
+ //não está funcionando
+ }
+
+ .mat-tab-label-active {
+  font-weight: 700;
+  font-size: 20px;
+  color: #FF7823 !important;
+  text-decoration: underline;
+}
+
+.mat-tab-label:not(.visited) {
+ 
+  color: #ffffff !important; 
+   font-weight: 700;
+  font-size: 20px; 
+
 }
