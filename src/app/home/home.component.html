@@ -6,30 +6,44 @@
         QUER MIGRAR PRA <span>ÁREA TECH</span> E NÃO SABE POR ONDE COMEÇAR?
       </h1>
       <h3>Fique tranquilo, a gente te mostra a <b>trilha certa!</b></h3>
-      <button>Começar trilha</button>
+      <button><a routerLink="/login">Começar trilha</a></button>
     </div>
+    <img src="/assets/medias/ImagemHome_Desk.png" />
   </section>
-  <section class="cards-trilhas" id="trilhas">
-    <app-card-trilha
-      *ngFor="let trilha of trilhas"
-      [titulo]="trilha.titulo"
-      [descricao]="trilha.descricao"
-    ></app-card-trilha>
-  </section>
+
+  <app-card-trilha></app-card-trilha>
 
   <section class="nossaTrilha-container">
     <h3>Pra quem é nossa trilha?</h3>
     <div class="nossaTrilha-card">
-      <img src="/assets/medias/FotoHome_MeninaCapuzNossaTrilha.png" />
+      <img
+        class="imagemMulher"
+        src="/assets/medias/FotoHome_MeninaCapuzNossaTrilha.png"
+      />
       <div class="texto">
-        <p>Sente curiosidade sobre a carreira Tech</p>
-        <p>Quer dominar do zero os conceitos e técnicas da área</p>
-        <p>Procura conteúdo de qualidade e gratuito</p>
-        <p>Está migrando de carreira para a área tech</p>
-        <p>
-          Sente que com o apoio de uma comunidade vitaminada irá se desenvolver
-          mais
-        </p>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Sente curiosidade sobre a carreira Tech</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Quer dominar do zero os conceitos e técnicas da área</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Procura conteúdo de qualidade e gratuito</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Está migrando de carreira para a área tech</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>
+            Sente que com o apoio de uma comunidade vitaminada irá se
+            desenvolver mais
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -47,4 +61,15 @@
   </section>
 
   <app-card-depoimentos></app-card-depoimentos>
+
+  <section class="chamativa-container">
+    <h1>SUA CARREIRA PODE TRILHAR O <b>MELHOR CAMINHO!</b></h1>
+    <button><a routerLink="/login">Começar trilha</a></button>
+  </section>
+
+  <div class="divisor"></div>
+
+  <app-faq></app-faq>
+
+  <div class="divisor"></div>
 </main>
