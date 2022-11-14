@@ -46,15 +46,15 @@ export class DetalheTrilhaComponent implements OnInit {
   }
 
   adicionarTrilhas(): void {
-    const data = {
-      title: 'Selecionar trilhas',
-      message: 'Selecione suas trilhas', 
-    };
+    // const data = {
+    //   title: 'Selecionar trilhas',
+    //   message: 'Selecione suas trilhas', 
+    // };
 
-    this.dialogService.openSelecionarTrilhas(data);
-    result: () => {
-      this.listarTrilhasUsuario();
-    }
+    // this.dialogService.openSelecionarTrilhas(data);
+    // result: () => {
+    //   this.listarTrilhasUsuario();
+    // }
   }
 
   listarTrilhasUsuario(): void {

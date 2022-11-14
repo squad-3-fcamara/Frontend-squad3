@@ -39,12 +39,8 @@ export class DashboardPerfilComponent implements OnInit {
   }
 
   adicionarTrilhas(): void {
-    const data = {
-      title: 'Selecionar trilhas',
-      message: 'Selecione suas trilhas', 
-    };
 
-    this.dialogService.openSelecionarTrilhas(data);
+  this.dialogService.openSelecionarTrilhas(this.inscricoes.trilhas);
     result: () => {
       this.listarTrilhasUsuario();
     }

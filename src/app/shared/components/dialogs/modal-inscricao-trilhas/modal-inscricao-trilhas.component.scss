@@ -48,3 +48,7 @@ span {
     font-size: 14px;
     color: #212121;
 }
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: black;
+  }

@@ -79,34 +79,14 @@ $sides: (
     }
   }
 }
-.mat-tab-group.mat-primary .mat-ink-bar {
- background: none; 
+
+
+.mat-header-cell {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #000 !important;
 }
 
-.mat-tab-label-content:disabled {
-  color: #ffffff !important; 
-
-font-size: 20px;
-
+tr.mat-header-row {
+  height: auto !important;
 }
-
-.mat-tab-label-active .mat-tab-label-content {
-  font-family: 'Montserrat-Regular';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  color: #FF7823 !important;
-  text-decoration: underline;
-  // text-shadow: 0px 4px 77px #FF7823;
-}
-
-// .mat-header-cell {
-//   font-size: 13px !important;
-//   font-weight: 700 !important;
-//   // color: #000 !important;
-// }
-
-// tr.mat-header-row {
-//   height: auto !important;
-// }

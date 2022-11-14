@@ -7,3 +7,7 @@ body {
   background: url("../assets/medias/PatternFundoTelaHomeSuperior.svg") no-repeat !important;
   background-color: #212122;
 }
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: white;
+}

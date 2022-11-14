@@ -1,4 +1,3 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TrilhaService } from './../../services/trilha.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,16 +16,13 @@ export class AulasComponent implements OnInit {
   videoSource = '//www.youtube.com/watch?v=_RsYz_iKP4k';
 
   aula!: any;
-  forumForm!: FormGroup;
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder,
     private dialogService: DialogService,
     private trilhaService: TrilhaService) { }
 
   ngOnInit(): void {
-    this.createFormDuvida();
 
     const usuario = this.trilhaService.LocalStorage.obterUsuario();
     if (usuario == null) {
@@ -46,10 +42,10 @@ export class AulasComponent implements OnInit {
     })
   }
 
-  adicionarConteudo(): void {
+  adicionarConteudo():void {
     const data = {
       title: 'Selecionar trilhas',
-      message: 'Selecione suas trilhas',
+      message: 'Selecione suas trilhas', 
     };
 
     this.dialogService.openAula(data);
@@ -60,12 +56,8 @@ export class AulasComponent implements OnInit {
     }
   }
 
-  createFormDuvida(): void {
-    this.forumForm = this.fb.group({
-      forum: ['', [Validators.required]]
-    });
-  }
-  enviarDuvida(): void {
-    this.forumForm.reset();
+
+  toggleVideo() {
+    this.videoplayer.nativeElement.play();
   }
 }

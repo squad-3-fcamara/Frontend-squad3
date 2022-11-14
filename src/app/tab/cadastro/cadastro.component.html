@@ -21,9 +21,6 @@
                     <label class="form-label">Senha</label>
                     <input class="form-control" type="password" placeholder="Digite sua senha" name="senha"
                         formControlName="senha" minlength="8" autocomplete="off">
-                        <!-- <div *ngIf="formControls ['senha']?.invalid">
-                            Campo obrigatório
-                        </div> -->
                 </div>
 
                 <div class="col-md-10 mt-3">
@@ -36,18 +33,28 @@
                     <label class="form-label">Qual trilha você deseja ter acesso?</label>
                     <div class="check mx-5">
                         <ng-container *ngFor="let item of trilhas; let index = index">
-                            <p><input formControlName="trilha" name="index" (change)="selecionarTrilha($event, item)" type="checkbox" > {{ item.nome}}</p>
+                            <div fxLayout="row wrap" fxLayoutAlign="start top" fxLayoutGap="25px">
+                                <mat-checkbox formControlName="trilha" name="index" fxLayoutAlign="center center"
+                                    (change)="selecionarTrilha($event, item)">
+                                    {{ item.nome}}
+                                </mat-checkbox>
+                            </div>
                         </ng-container>
                     </div>
-                </div> <br>
-                <div class="col-md-10 check">
+                </div>
+                <div class="col-md-6">
+                    <mat-checkbox class="aceite" formControlName="checkboxLgpd" name="checkboxLgpd" fxLayoutAlign="center center">
+                        Eu concordo em receber comunicações da Orange Juice e do Grupo FCamara. Ao
+                        informar meus dados, estou ciente das diretrizes da Política de Privacidade.
+                    </mat-checkbox>
                     <p class="aceite"><input type="checkbox" formControlName="checkboxLgpd"> Eu concordo em receber comunicações da Orange Juice e do Grupo FCamara. Ao
                         informar meus dados, estou ciente das diretrizes da Política de Privacidade.</p>
                 </div>
-                
+
                 <div style="display: flex;" class="form-group justify-content-center">
                     <div class="col-md-4 col-md-offset-2 mt-3">
-                        <span><button [disabled]="cadastroForm.invalid" class="btn" type="submit">Criar conta</button></span>
+                        <span><button [disabled]="cadastroForm.invalid" class="btn" type="submit">Criar
+                                conta</button></span>
                     </div>
                 </div>
             </form>
