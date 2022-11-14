@@ -40,3 +40,55 @@
     font-weight: 500;
   }
 }
+
+.carousel {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.depoimento-mobile {
+  display: none;
+  width: 90%;
+
+  .informacoes-pessoa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 220px;
+      height: 220px;
+    }
+    .pessoa {
+      margin-left: -20px;
+      .nome {
+        font-family: "Montserrat";
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 20px;
+        color: #c9c6c4;
+      }
+      .cargo {
+        font-family: "Montserrat";
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #c9c6c4;
+      }
+    }
+  }
+
+  .depoimento {
+    margin-top: -10px;
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fffbf9;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
