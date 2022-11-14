@@ -20,6 +20,8 @@ import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-per
 import { DialogService } from './services/dialog.service';
 import { AulasComponent } from './fluxo/aulas/aulas.component';
 import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.component';
+import { LidoPipe } from './shared/pipes/conteudo.pipe';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.componen
     DashboardPerfilComponent,
     AulasComponent,
     DetalheTrilhaComponent,
+    LidoPipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,
