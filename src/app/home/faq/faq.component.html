@@ -1,0 +1,24 @@
+<section class="faq-container" id="faq">
+  <h3>Perguntas frequentes</h3>
+  <div *ngFor="let faq of faqs">
+    <p>
+      <a
+        class="collapse-container"
+        data-bs-toggle="collapse"
+        [attr.href]="'#faq' + faq.index"
+        aria-expanded="false"
+        [attr.aria-controls]="'faq' + faq.index"
+      >
+        <p>{{ faq.pergunta }}</p>
+        <img src="/assets/medias/FlechaParaBaixo.svg" />
+      </a>
+    </p>
+    <div class="collapse" [id]="'faq' + faq.index">
+      <div class="collapse-body">
+        <p>
+          {{ faq.resposta }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

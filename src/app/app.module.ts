@@ -19,6 +19,13 @@ import { NavbarLoginCadastroComponent } from './tab/navbar-login-cadastro/navbar
 import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-perfil.component';
 import { DialogService } from './services/dialog.service';
 import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './home/header/header.component';
+import { CardTrilhaComponent } from './home/card-trilha/card-trilha.component';
+import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferenciais.component';
+import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoimentos.component';
+import { FaqComponent } from './home/faq/faq.component';
+import { FooterComponent } from './home/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +41,13 @@ import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.componen
     NavbarLoginCadastroComponent,
     DashboardPerfilComponent,
     DetalheTrilhaComponent,
+    HomeComponent,
+    HeaderComponent,
+    CardTrilhaComponent,
+    CardDiferenciaisComponent,
+    CardDepoimentosComponent,
+    FaqComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -37,7 +37,7 @@
         <div>
           <div class="collapse-ordem">
             <img src="/assets/medias/IconeColmeiaPreenchida.png" />
-            <p>{{ modulo.ordem }}</p>
+            <p>{{ modulo.ordem < 10 ? "0" + modulo.ordem : modulo.ordem }}</p>
           </div>
           <p class="collapse-titulo">{{ modulo.nome }}</p>
         </div>
