@@ -1,34 +1,49 @@
-div {
-  width: 300px;
-  height: 320px;
-  border-radius: 20px;
-  border: 2px solid #ff7823;
-  box-shadow: 0px 0px 5px 1px #ff7823;
-  padding: 30px 20px;
+.cards-trilhas {
+  margin: 200px 0 300px;
+  display: flex;
+  justify-content: space-between;
 
-  span {
-    font-family: "Montserrat";
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 29px;
-    color: #898684;
+  div {
+    width: 300px;
+    height: 320px;
+    border-radius: 20px;
+    border: 2px solid #ff7823;
+    box-shadow: 0px 0px 5px 1px #ff7823;
+    padding: 30px 20px;
+
+    span {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 29px;
+      color: #898684;
+    }
+
+    h4 {
+      width: 247px;
+      margin: 8px 0 24px;
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 39px;
+      color: #c9c6c4;
+    }
+
+    p {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 29px;
+      color: #ffffff;
+    }
   }
 
-  h4 {
-    width: 247px;
-    margin: 8px 0 24px;
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 39px;
-    color: #c9c6c4;
-  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 64px;
 
-  p {
-    font-family: "Montserrat";
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 29px;
-    color: #ffffff;
+    div {
+      height: 300px;
+    }
   }
 }
