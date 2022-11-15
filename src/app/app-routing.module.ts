@@ -14,7 +14,11 @@ const routes: Routes = [
   { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
   { path: 'adicionar-trilha', component: AdicionarTrilhaComponent },
   { path: 'aulas/:idTrilha/:idAula', component: AulasComponent },
-  { path: 'detalhe-trilha/:id', component: DetalheTrilhaComponent }
+  { path: 'detalhe-trilha/:id', component: DetalheTrilhaComponent },
+  {
+    path: 'administrador',
+    loadChildren: () => import('./administrador/administrador.module').then(m => m.AdministradorModule)
+  },
 ];
 
 @NgModule({

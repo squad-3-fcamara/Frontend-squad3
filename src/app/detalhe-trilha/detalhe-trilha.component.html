@@ -1,54 +1,68 @@
 <app-menu></app-menu>
-<ng-container *ngIf="detalheTrilha != undefined">
-  <h1 class="titulo">
-    <strong> TRILHA </strong><span>{{ detalheTrilha.trilha.nome }}</span>
-  </h1>
-</ng-container>
 
-<div class="progresso-container">
-  <img src="/assets/medias/IconeColmeiaPreenchida.png" />
-  <div class="barra"></div>
-  <img src="/assets/medias/IconeColmeiaVazia.svg" />
-  <div class="barra"></div>
-  <img src="/assets/medias/IconeColmeiaVazia.svg" />
-  <div class="barra"></div>
-  <img src="/assets/medias/IconeColmeiaVazia.svg" />
-  <div class="barra"></div>
-  <img src="/assets/medias/IconeColmeiaVazia.svg" />
-  <div class="barra"></div>
-  <img src="/assets/medias/IconeColmeiaVazia.svg" />
-  <div class="barra"></div>
-  <img src="/assets/medias/IconeColmeiaVazia.svg" />
-</div>
 
-<div class="botao-container">
-  <button>Continuar Trilha</button>
-</div>
-
-<ng-container *ngIf="detalheTrilha != undefined">
-  <h3 class="subtitulo">Conteúdos da sua trilha:</h3>
-  <div class="conteudos-container" *ngFor="let modulo of detalheTrilha.modulos">
-    <p>
-      <a class="collapse-container" data-bs-toggle="collapse" [attr.href]="'#modulo' + modulo.id" aria-expanded="false"
-        [attr.aria-controls]="'modulo' + modulo.id">
-        <div>
-          <div class="collapse-ordem">
-            <img src="/assets/medias/IconeColmeiaPreenchida.png" />
-            <p>{{ modulo.ordem }}</p>
-          </div>
-          <p class="collapse-titulo">{{ modulo.nome }}</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <ng-container *ngIf="detalheTrilha != undefined">
+        <h1 class="titulo">
+          <strong> TRILHA </strong><span>{{ detalheTrilha.trilha.nome }}</span>
+        </h1>
+      </ng-container>
+      <ng-container *ngIf="!usuario.isadmin">
+        <div class="progresso-container">
+          <img src="/assets/medias/IconeColmeiaPreenchida.png" />
+          <div class="barra"></div>
+          <img src="/assets/medias/IconeColmeiaVazia.svg" />
+          <div class="barra"></div>
+          <img src="/assets/medias/IconeColmeiaVazia.svg" />
+          <div class="barra"></div>
+          <img src="/assets/medias/IconeColmeiaVazia.svg" />
+          <div class="barra"></div>
+          <img src="/assets/medias/IconeColmeiaVazia.svg" />
+          <div class="barra"></div>
+          <img src="/assets/medias/IconeColmeiaVazia.svg" />
+          <div class="barra"></div>
+          <img src="/assets/medias/IconeColmeiaVazia.svg" />
         </div>
-        <img src="/assets/medias/FlechaParaBaixo.svg" />
-      </a>
-    </p>
-    <div class="collapse" [id]="'modulo' + modulo.id">
-      <div class="collapse-body">
-        <ul>
-          <li *ngFor="let aula of modulo.aulas">
-            {{ aula.nome }} <button (click)="continuarAula(aula, detalheTrilha)">Ir para a aula</button>
-          </li>
-        </ul>
-      </div>
+
+
+        <div class="botao-container">
+          <button>Continuar Trilha</button>
+        </div>
+      </ng-container>
+
+
+      <ng-container *ngIf="detalheTrilha != undefined">
+        <h3 class="subtitulo mt-5">Conteúdos da sua trilha:</h3>
+        <div class="conteudos-container mt-5" *ngFor="let modulo of detalheTrilha.modulos">
+          <p>
+            <a class="collapse-container" data-bs-toggle="collapse" [attr.href]="'#modulo' + modulo.id"
+              aria-expanded="false" [attr.aria-controls]="'modulo' + modulo.id">
+              <div>
+                <div class="collapse-ordem">
+                  <img src="/assets/medias/IconeColmeiaPreenchida.png" />
+                  <p>{{ modulo.ordem }}</p>
+                </div>
+                <p class="collapse-titulo">{{ modulo.nome }}</p>
+              </div>
+              <img src="/assets/medias/FlechaParaBaixo.svg" />
+            </a>
+          </p>
+          <div class="collapse" [id]="'modulo' + modulo.id">
+            <div class="collapse-body">
+              <ul>
+                <li *ngFor="let aula of modulo.aulas">
+                  {{ aula.nome }} <button (click)="continuarAula(aula, detalheTrilha)">
+                    <ng-container *ngIf="!usuario.isadmin"> Ir para a aula</ng-container>
+                    <ng-container *ngIf="usuario.isadmin"> Editar conteúdo</ng-container>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </div>
-</ng-container>
+</div>

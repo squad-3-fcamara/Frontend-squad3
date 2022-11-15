@@ -51,7 +51,7 @@ export class ModalInscricaoTrilhasComponent implements OnInit {
 
     this.userService.adicionarTrilhasUsuario(adicionarTrilhas).subscribe(() => {
       this.fechar();
-     });
+    });
   }
 
   selecionarTrilha(event: any, trilha: Trilha): void {

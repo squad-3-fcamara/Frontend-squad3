@@ -22,7 +22,10 @@ import { AulasComponent } from './fluxo/aulas/aulas.component';
 import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.component';
 import { LidoPipe } from './shared/pipes/conteudo.pipe';
 import { SafePipe } from './shared/pipes/safe.pipe';
-
+import { ModalEditarConteudoComponent } from './shared/components/dialogs/modal-editar-conteudo/modal-editar-conteudo.component';
+import { ModalExcluirConteudoComponent } from './shared/components/dialogs/modal-excluir-conteudo/modal-excluir-conteudo.component';
+import { ModalInscricaoTrilhasComponent } from './shared/components/dialogs/modal-inscricao-trilhas/modal-inscricao-trilhas.component';
+import { ModalIncluirConteudoComponent } from './shared/components/dialogs/modal-incluir-conteudo/modal-incluir-conteudo.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +42,12 @@ import { SafePipe } from './shared/pipes/safe.pipe';
     DashboardPerfilComponent,
     AulasComponent,
     DetalheTrilhaComponent,
+    ModalInscricaoTrilhasComponent,
+    ModalExcluirConteudoComponent,
+    ModalEditarConteudoComponent,
+    ModalIncluirConteudoComponent,
     LidoPipe,
-    SafePipe
+    SafePipe,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,9 @@ import { SafePipe } from './shared/pipes/safe.pipe';
     ReactiveFormsModule,
     AppMaterialModule,
     HttpClientModule,
+  ],
+  exports: [
+    MenuComponent
   ],
   providers: [DialogService],
   bootstrap: [AppComponent],

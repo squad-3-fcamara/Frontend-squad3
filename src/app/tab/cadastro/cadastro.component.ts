@@ -29,8 +29,6 @@ export class CadastroComponent implements OnInit {
   }
 
   createForm(): void {
-    // const email = new FormControl('', [Validators.required, CustomValidatorsHelpers.validEmail]);
-    // const confirmarSenha = new FormControl('', [Validators.required,  CustomValidators.equalTo(email)]);
 
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],

@@ -6,6 +6,7 @@ import { Aula } from '../models/aula.model';
 import { DialogService } from '../services/dialog.service';
 import { UserService } from '../services/user.service';
 import { Inscricoes } from '../models/inscricoes.model';
+import { Usuario } from '../models/usuario-response.model';
 
 @Component({
   selector: 'app-detalhe-trilha',
@@ -14,6 +15,7 @@ import { Inscricoes } from '../models/inscricoes.model';
 })
 export class DetalheTrilhaComponent implements OnInit {
   detalheTrilha!: DetalheTrilha;
+  usuario!: Usuario;
 
   constructor(private trilhaService: TrilhaService,
     private router: Router,
@@ -23,11 +25,13 @@ export class DetalheTrilhaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const usuario = this.trilhaService.LocalStorage.obterUsuario();
-    if (usuario == null) {
+    this.usuario = this.trilhaService.LocalStorage.obterUsuario();
+    if (this.usuario == null) {
       this.router.navigate(['/login']);
       return;
     }
+
+
 
     if (this.activatedRoute.snapshot.params['id']) {
       this.getDetalhesTrilha(this.activatedRoute.snapshot.params['id']);

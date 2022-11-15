@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Aula } from 'src/app/models/aula.model';
 import { ConteudoService } from 'src/app/services/conteudo.service';
 import { DialogService } from 'src/app/services/dialog.service';
+import { Usuario } from 'src/app/models/usuario-response.model';
+import { Modulo } from 'src/app/models/modulo.model';
 
 @Component({
   selector: 'app-aulas',
@@ -13,11 +15,9 @@ import { DialogService } from 'src/app/services/dialog.service';
 })
 export class AulasComponent implements OnInit {
 
-  @ViewChild('videoPlayer') videoplayer!: ElementRef;
-  videoSource = '//www.youtube.com/watch?v=_RsYz_iKP4k';
-
   aula!: any;
   forumForm!: FormGroup;
+  usuario!: Usuario;
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -28,8 +28,8 @@ export class AulasComponent implements OnInit {
   ngOnInit(): void {
     this.createFormDuvida();
 
-    const usuario = this.trilhaService.LocalStorage.obterUsuario();
-    if (usuario == null) {
+    this.usuario = this.trilhaService.LocalStorage.obterUsuario();
+    if (this.usuario == null) {
       this.router.navigate(['/login']);
       return;
     }
@@ -65,7 +65,27 @@ export class AulasComponent implements OnInit {
       forum: ['', [Validators.required]]
     });
   }
+
   enviarDuvida(): void {
     this.forumForm.reset();
+  }
+
+  excluirConteudo(conteudo: Modulo): void {
+
+    this.dialogService.excluirConteudo(conteudo);
+    result: () => {
+    }
+  }
+
+  editarConteudo(conteudo: Modulo): void {
+    this.dialogService.openEdicaoConteudo(conteudo, this.activatedRoute.snapshot.params['idAula']);
+    result: () => {
+    }
+  }
+
+  cadastrarConteudo(): void {
+    this.dialogService.openCadastrarConteudo(this.aula ,this.activatedRoute.snapshot.params['idAula']);
+    result: () => {
+    }
   }
 }

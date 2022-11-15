@@ -1,0 +1,36 @@
+<!-- <app-menu></app-menu> -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-12">
+            <ng-container *ngIf="inscricoes != null">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-md-8 col-12">
+                        <p class="saudacao"> Olá, {{inscricoes.usuario.nome}}!</p>
+                        <h5>O que você deseja fazer hoje?</h5>
+                        <p class="trilhas-disponiveis mt-5">Trilhas disponíveis:</p>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+
+                <ng-container *ngFor="let trilha of inscricoes.trilhas, let index = index">
+                    <div class="row mt-2">
+                        <div class="col-md-1 col ">
+                            <div class="num">{{index + 1}}</div>
+                        </div>
+                        <div class="col-md-8 col-12">
+                            <p class="trilha-escolhida"> {{trilha.nome}}</p>
+                            <p class="progresso">Deseja adicionar ou remover conteúdos da trilha?</p>
+                        </div>
+                        <div class="col-md-3" style="display: flex; align-items: start; padding-top: 20px;">
+                            <span><button class="btn" (click)="continuarTrilha(trilha)">Editar
+                                    trilha</button></span>
+                        </div>
+                    </div>
+
+                </ng-container>
+            </ng-container>
+        </div>
+        <hr class="separator" />
+    </div>
+</div>
