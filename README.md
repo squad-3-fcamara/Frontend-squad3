@@ -1,27 +1,30 @@
-# FrontendSquad3
+<h1>Front-end do Squad-03</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+<h2>Sobre</h2>
+Esta é o Front-end do Squad 03 do Hackaton do Programa de Formação da <a href="https://digital.fcamara.com.br/programadeformacao">FCamara</a>.<br/>
+Utilizamos Angular, juntamente com Angular Material, Bootstrap e SCSS para estilização.
 
-## Development server
+<h2>Tecnologias</h2>
+<ul>
+    <li>Angular</li>
+    <li>TypeScript</li>
+    <li>Angular Material</li>
+    <li>Bootstrap</li>
+    <li>SCSS</li>
+</ul>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<h2>Como rodar a aplicação?</h2>
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+``` bash
+#Clone este repositório
+$ git clone git@github.com:squad-3-fcamara/Frontend-squad3.git
+#Abra a pasta e no terminal execute o comando:
+$ npm install
+ou
+$ yarn install
+#Em seguida deixe a aplicação “rodando” através do comando abaixo:
+$ npm start
+ou
+$ yarn start
+#A aplicação será aberta na porta:3100 - acesse http://localhost:3100. 
+```
