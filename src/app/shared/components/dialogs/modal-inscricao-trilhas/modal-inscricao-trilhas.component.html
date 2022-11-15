@@ -1,4 +1,32 @@
-<div fxLayout="column" fxLayoutGap.xs="16px" fxLayoutGap.md="24px" fxLayoutGap.lg="32px" fxLayoutGap.xl="40px">
-
-    <button mat-flat-button color="primary" (click)="fechar()">FECHAR</button>
+<div class="modal-trilhas" fxLayout="column" fxLayoutGap.xs="16px" fxLayoutGap.md="24px" fxLayoutGap.lg="32px"
+    fxLayoutGap.xl="0px">
+    <div>
+        <strong>
+            <p class="titulo-modal">Escolha a próxima trilha que você quer seguir:</p>
+        </strong>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ng-container *ngFor="let item of trilhas; let index = index">
+                    <div fxLayout="row wrap" fxLayoutAlign="start top" fxLayoutGap="25px">
+                        <mat-checkbox [checked]="item.selecionada" formControlName="trilha" name="index" fxLayoutAlign="center center"
+                            (change)="selecionarTrilha($event, item)">
+                            <b>{{ item.nome}}</b>
+                        </mat-checkbox>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="btn-primario" (click)="fechar()"><b>Cancelar</b></button>
+            </div>
+            <div class="col">
+                <button (click)="adicionarTrilha()" class="add-trilha"><b>Adicionar trilha</b></button>
+            </div>
+        </div>
+    </div>
 </div>

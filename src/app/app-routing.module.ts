@@ -1,3 +1,4 @@
+import { AulasComponent } from './fluxo/aulas/aulas.component';
 import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-perfil.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,11 +15,16 @@ const routes: Routes = [
   { path: 'dashboard-perfil', component: DashboardPerfilComponent },
   { path: 'adicionar-conteudo', component: AdicionarConteudoComponent },
   { path: 'adicionar-trilha', component: AdicionarTrilhaComponent },
-  { path: 'detalhe-trilha', component: DetalheTrilhaComponent },
+  { path: 'aulas/:idTrilha/:idAula', component: AulasComponent },
+  { path: 'detalhe-trilha/:id', component: DetalheTrilhaComponent },
+  {
+    path: 'administrador',
+    loadChildren: () => import('./administrador/administrador.module').then(m => m.AdministradorModule)
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

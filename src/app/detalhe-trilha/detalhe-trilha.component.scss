@@ -1,10 +1,6 @@
 .titulo {
-  font-family: "Montserrat";
-  font-weight: 700;
   font-size: 48px;
-  line-height: 59px;
   color: #ffffff;
-
   margin: 113px 0 0 248px;
 
   span {
@@ -18,15 +14,12 @@
     width: 300px;
     font-weight: 600;
     font-size: 16px;
-    line-height: 20px;
     color: #b4b0ae;
     margin: 78px auto 10px;
     text-align: center;
 
     span {
-      font-weight: 600;
       font-size: 20px;
-      line-height: 24px;
       color: #f7f3f1;
       -webkit-text-stroke-width: 0;
     }
@@ -82,10 +75,7 @@
     border: 2px solid #ff7823;
     box-shadow: 0px 0px 11px #ff7823;
     border-radius: 24px;
-    font-family: "Montserrat";
-    font-weight: 700;
     font-size: 14px;
-    line-height: 17px;
     color: #fffbf9;
   }
 
@@ -97,10 +87,7 @@
 }
 
 .subtitulo {
-  font-family: "Montserrat";
-  font-weight: 700;
   font-size: 30px;
-  line-height: 49px;
   color: #ffffff;
   margin-left: 10%;
 
@@ -129,10 +116,7 @@
       width: 40.38px;
       height: 49px;
       margin-right: 30px;
-      font-family: "Montserrat";
-      font-weight: 700;
       font-size: 16px;
-      line-height: 20px;
       color: #ffffff;
 
       img {
@@ -147,10 +131,7 @@
     }
 
     .collapse-titulo {
-      font-family: "Montserrat";
-      font-weight: 500;
       font-size: 22px;
-      line-height: 39px;
       color: #ffffff;
       padding-top: 10px;
     }
@@ -171,10 +152,7 @@
       display: flex;
       justify-content: space-between;
       margin: 0px 250px 10px 150px;
-      font-family: "Montserrat";
-      font-weight: 400;
       font-size: 18px;
-      line-height: 20px;
       color: #ffffff;
       list-style: none;
 
@@ -184,10 +162,7 @@
         border-radius: 20px;
         background: transparent;
         padding: 5px 10px;
-        font-family: "Montserrat";
-        font-weight: 600;
         font-size: 14px;
-        line-height: 17px;
         color: #ffff;
       }
     }
@@ -201,3 +176,120 @@
     }
   }
 }
+
+.saudacao {
+  font-style: normal;
+  font-size: 25px;
+  font-weight: 600;
+  color: #FFFBF9;
+  margin-bottom: 5px !important;
+}
+
+h5,
+.progresso {
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-top: 18px;
+}
+
+.trilha-escolhida {
+  margin-top: 70px;
+  font-size: 25px;
+  color: #C9C6C4;
+}
+
+.progress {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: 1px solid #FF7823;
+}
+
+.progress-bar {
+  background: #FF7823;
+  box-shadow: 0px 4px 77px #FF7823;
+  border: 1px solid #FF7823;
+}
+
+.botao-continuar {
+  font-family: 'Montserrat-Regular';
+  font-size: 10px;
+  color: #FFFBF9;
+  background: rgba(255, 120, 35, 0.2);
+  border: 1px solid #FF7823;
+  box-shadow: 0px 0px 11px #FF7823;
+  border-radius: 24px;
+}
+
+.convite {
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+
+.convite-2 {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.cards {
+  border: 2px solid #FF5A23;
+  filter: drop-shadow(0px 0px 100px #FF5A23);
+  border-radius: 24px;
+  padding: 15px;
+}
+
+.card-trilha {
+  border: 2px solid #FF5A23;
+  filter: drop-shadow(0px 0px 100px #FF5A23);
+  border-radius: 24px;
+  padding: 15px;
+  border-left: none;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  margin-left: -15px;
+}
+
+.btn-primario {
+  font-size: 14px;
+  color: #FFFBF9;
+  border-radius: 20px;
+  border: 1px solid #FFA000;
+  box-shadow: 0px 0px 1px #FFA000;
+  background: transparent;
+  padding: 7px;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFBF9;
+}
+
+
+.col-card-trilhas {
+  box-shadow: 0px 4px 103px rgba(255, 90, 35, 0.4);
+  border-radius: 42px;
+  background: #FF5A23;
+}
+
+.img-card-trilhas {
+  background: url(../../assets/medias/IMG_outrastrilhas_semSombra.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 42px;
+  width: 227px;
+  height: 235px;
+}
+
+
+.img-card-discord {
+  background: url(../../assets/medias/IMG_discord_meninas_semsombra.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 42px;
+  width: 227px;
+  height: 235px;
+}
+
+
+

@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { AdicionarTrilhasRequest } from "../models/adicionar-trilhas.model";
 import { Inscricoes } from "../models/inscricoes.model";
 import { Login } from "../models/login.model";
 import { User } from "../models/user.model";
@@ -29,6 +30,11 @@ export class UserService extends BaseService {
     getInscricoesUser() {
         const httpOptions = this.obterAuthHeaderJson();
         return this._get<Inscricoes>(`https://orange-squad03.herokuapp.com/usuario`, httpOptions);
+    }
+
+    adicionarTrilhasUsuario(trilhas: AdicionarTrilhasRequest) {
+        const httpOptions = this.obterAuthHeaderJson();
+        return this._patch<any>(`https://orange-squad03.herokuapp.com/usuario/trilhas`, trilhas, httpOptions);
     }
 
     private cadastrarExemploComHeaders(entity: any) {

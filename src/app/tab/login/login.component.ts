@@ -39,9 +39,12 @@ export class LoginComponent implements OnInit {
     this.userService.login(login)
       .subscribe(response => {
         if (response != null) {
-          this.snackBarService.openSuccess(['Bem vindo!']);
+          this.snackBarService.openSuccess(['Bem vindo (a)!']);
           this.userService.LocalStorage.salvarDadosLocaisUsuario(response);
-          this.router.navigate(['/dashboard-perfil']);
+          if (response.usuario.isadmin)
+            this.router.navigate(['/administrador/exibir-trilha']);
+          else
+            this.router.navigate(['/dashboard-perfil']);
         }
 
       })

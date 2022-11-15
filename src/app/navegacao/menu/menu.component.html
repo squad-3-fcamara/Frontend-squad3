@@ -1,26 +1,63 @@
-<mat-toolbar >
-    <mat-nav-list class="list-horizontal">
-        <mat-list-item>
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-        </mat-list-item>
-        <mat-list-item>
-            <a class="nav-link text-dark" href="https://digital.fcamara.com.br/orange-evolution" target="_blank" rel="noopener noreferrer">Orange Juice</a> 
-        </mat-list-item> 
-        <mat-list-item>
-            <a class="nav-link text-dark" [routerLink]="['/']"> Fale conosco</a>
-        </mat-list-item>
-        <!-- <mat-list-item>
-            <button mat-button [matMenuTriggerFor]="menu">Administrador</button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item [routerLink]="['/adicionar-trilha']">
-                    <mat-icon>edit</mat-icon>
-                    <span>Cadastrar Trilha</span>
-                </button>
-                <button mat-menu-item [routerLink]="['/adicionar-conteudo']"> 
-                    <mat-icon>edit</mat-icon>
-                    <span>Cadastrar Conteúdo</span>
-                </button>
-            </mat-menu>
-        </mat-list-item> -->
-    </mat-nav-list>
-</mat-toolbar>
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-md-1 justify-content-end" style="display: flex;">
+            <img src="/assets/medias/logo-splash.svg" />
+        </div>
+        <div class="col-md-11">
+            <mat-toolbar>
+                <mat-nav-list class="list-horizontal">
+                    <ng-container *ngFor="let item of menu">
+                        <mat-list-item>
+                            <ng-container *ngIf="item.link != '' && !item.botao">
+                                <a class="nav-link text-dark" [href]="item.link" target="_blank">{{ item.nome }} </a>
+                            </ng-container>
+                            <ng-container *ngIf="item.link == ''">
+                                <a class="nav-link text-dark" [routerLink]="item.rota">{{ item.nome }} </a>
+                            </ng-container>
+                            <ng-container *ngIf="item.link == 'Sininho'">
+                                <a class="nav-link text-dark" [routerLink]="['/']">
+                                    <mat-icon>notifications_none</mat-icon>
+                                </a>
+                            </ng-container>
+                            <ng-container *ngIf="item.link == 'Entrar/Cadastrar'">
+                                <span><button class="btn" [routerLink]="['/login']"
+                                    type="submit">Entrar/Cadastrar</button></span>
+                            </ng-container>
+                        </mat-list-item>
+                    </ng-container>
+                    <!-- <mat-list-item>
+                        <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a class="nav-link text-dark" [routerLink]="['/dashboard-perfil']">Minhas trilhas</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a class="nav-link text-dark" [routerLink]="['/']">FAQ</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a class="nav-link text-dark" [routerLink]="['/']">Diferenciais</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a class="nav-link text-dark" href="https://digital.fcamara.com.br/orange-evolution"
+                            target="_blank" rel="noopener noreferrer">Orange Juice</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a class="nav-link text-dark" [routerLink]="['/']"> Fale conosco</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a class="nav-link text-dark" [routerLink]="['/']">
+                            <mat-icon>notifications_none</mat-icon>
+                        </a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a class="nav-link text-dark" [routerLink]="['/login']">Sair</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <span><button class="btn" [routerLink]="['/login']"
+                                type="submit">Entrar/Cadastrar</button></span>
+                    </mat-list-item> -->
+                </mat-nav-list>
+            </mat-toolbar>
+        </div>
+    </div>
+</div>

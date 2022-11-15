@@ -1,9 +1,10 @@
-<main>
-  <div>HEADER</div>
+<app-menu [menu]="menu"></app-menu>
+<ng-container *ngIf="detalheTrilha != undefined">
   <h1 class="titulo">
-    TRILHA <span>{{ trilha.trilha.nome }}</span>
+    <strong> TRILHA </strong><span>{{ detalheTrilha.trilha.nome }}</span>
   </h1>
-
+</ng-container>
+<ng-container *ngIf="!usuario.isadmin">
   <div class="progresso-container">
     <img src="/assets/medias/IconeColmeiaPreenchida.png" />
     <div class="barra"></div>
@@ -20,24 +21,22 @@
     <img src="/assets/medias/IconeColmeiaVazia.svg" />
   </div>
 
-  <div class="botao-container">
-    <button>Continuar Trilha</button>
-  </div>
 
-  <h3 class="subtitulo">Conteúdos da sua trilha:</h3>
-  <div class="conteudos-container" *ngFor="let modulo of trilha.modulos">
+  <div class="botao-container">
+    <button (click)="continuarTrilha()"><b>Continuar Trilha</b></button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="detalheTrilha != undefined">
+  <h3 class="subtitulo mt-5">Conteúdos da sua trilha:</h3>
+  <div class="conteudos-container mt-5" *ngFor="let modulo of detalheTrilha.modulos">
     <p>
-      <a
-        class="collapse-container"
-        data-bs-toggle="collapse"
-        [attr.href]="'#modulo' + modulo.id"
-        aria-expanded="false"
-        [attr.aria-controls]="'modulo' + modulo.id"
-      >
+      <a class="collapse-container" data-bs-toggle="collapse" [attr.href]="'#modulo' + modulo.id" aria-expanded="false"
+        [attr.aria-controls]="'modulo' + modulo.id">
         <div>
           <div class="collapse-ordem">
             <img src="/assets/medias/IconeColmeiaPreenchida.png" />
-            <p>{{ modulo.ordem < 10 ? "0" + modulo.ordem : modulo.ordem }}</p>
+            <p>{{ modulo.ordem }}</p>
           </div>
           <p class="collapse-titulo">{{ modulo.nome }}</p>
         </div>
@@ -48,10 +47,62 @@
       <div class="collapse-body">
         <ul>
           <li *ngFor="let aula of modulo.aulas">
-            {{ aula.nome }} <button>Ir para a aula</button>
+            {{ aula.nome }} <button (click)="continuarAula(aula, modulo)">
+              <ng-container *ngIf="!usuario.isadmin"> Ir para a aula</ng-container>
+              <ng-container *ngIf="usuario.isadmin"> Editar conteúdo</ng-container>
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </div>
-</main>
+</ng-container>
+
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 img-card-trilhas"></div>
+    <div class="col-md-6 col-12 align-items-center" style="display: flex;">
+      <div class="container-fluid" style="padding: 0px;">
+        <div class="row card-trilha">
+          <div class="col-md-12 col-12">
+            <p class="convite">Você sabe que pode adicionar mais trilhas?</p>
+            <p class="convite-2">A qualquer momento você pode adicionar outras trilhas para seguir.</p>
+            <div style="display: flex;" class="form-group justify-content-end">
+              <div class="col-md-offset-2 mt-3">
+                <span><button class="modal-trilhas" (click)="adicionarTrilhas()" class="btn-primario">Adicionar
+                    trilha</button></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3 mb-5" style="padding-bottom: 100px !important;">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 img-card-discord"></div>
+    <div class="col-md-6 col-12 align-items-center" style="display: flex;">
+      <div class="container-fluid" style="padding: 0px;">
+        <div class="row card-trilha">
+          <div class="col-md-12 col-12">
+            <p class="convite">Já conhece a nossa comunidade no Discord?</p>
+            <p class="convite-2">Lá você consegue conversar com pessoas que estão passando pelo mesmo
+              momento que você. Troca de ideias,
+              conhecimentos.</p>
+            <div style="display: flex;" class="form-group justify-content-end">
+              <div class="col-md-offset-2 mt-3">
+                <span><button class="btn-primario"><a href="https://discord.com/invite/NtESsDFGx5" target="_blank"
+                      rel="noopener noreferrer">Conhecer
+                      comunidade</a></button></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

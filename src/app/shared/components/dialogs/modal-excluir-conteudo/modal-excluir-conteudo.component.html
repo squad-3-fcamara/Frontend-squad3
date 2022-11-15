@@ -1,0 +1,30 @@
+<div class="modal-trilhas" fxLayout="column" fxLayoutGap.xs="16px" fxLayoutGap.md="24px" fxLayoutGap.lg="32px"
+    fxLayoutGap.xl="0px">
+    <div>
+        <strong>
+            <p class="titulo-modal mt-3">Tem certeza que deseja deletar o conteúdo?</p>
+        </strong>
+    </div>
+    <div class="container mt-1">
+        <div class="row">
+            <div class="col-md-12 justify-content-center" style="display: flex;">
+                <p class="conteudo">Conteúdo</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col conteudo-exclusao">
+                <b> {{ conteudo.nome }}</b>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <button class="btn-primario" (click)="fechar()"><b>Cancelar</b></button>
+            </div>
+            <div class="col-6">
+                <button (click)="excluirConteudo()" class="excluir"><b>Deletar conteúdo</b></button>
+            </div>
+        </div>
+    </div>
+</div>

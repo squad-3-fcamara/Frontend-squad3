@@ -18,7 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarLoginCadastroComponent } from './tab/navbar-login-cadastro/navbar-login-cadastro.component';
 import { DashboardPerfilComponent } from './fluxo/dashboard-perfil/dashboard-perfil.component';
 import { DialogService } from './services/dialog.service';
+import { AulasComponent } from './fluxo/aulas/aulas.component';
 import { DetalheTrilhaComponent } from './detalhe-trilha/detalhe-trilha.component';
+import { LidoPipe } from './shared/pipes/conteudo.pipe';
+import { SafePipe } from './shared/pipes/safe.pipe';
+import { ModalEditarConteudoComponent } from './shared/components/dialogs/modal-editar-conteudo/modal-editar-conteudo.component';
+import { ModalExcluirConteudoComponent } from './shared/components/dialogs/modal-excluir-conteudo/modal-excluir-conteudo.component';
+import { ModalInscricaoTrilhasComponent } from './shared/components/dialogs/modal-inscricao-trilhas/modal-inscricao-trilhas.component';
+import { ModalIncluirConteudoComponent } from './shared/components/dialogs/modal-incluir-conteudo/modal-incluir-conteudo.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './home/header/header.component';
 import { CardTrilhaComponent } from './home/card-trilha/card-trilha.component';
@@ -26,6 +33,8 @@ import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferen
 import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoimentos.component';
 import { FaqComponent } from './home/faq/faq.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { ModalConfirmComponent } from './shared/components/dialogs/modal-confirm/modal-confirm.component';
+
 
 @NgModule({
   declarations: [
@@ -40,14 +49,24 @@ import { FooterComponent } from './home/footer/footer.component';
     MenuComponent,
     NavbarLoginCadastroComponent,
     DashboardPerfilComponent,
+    AulasComponent,
     DetalheTrilhaComponent,
+
+    ModalInscricaoTrilhasComponent,
+    ModalExcluirConteudoComponent,
+    ModalEditarConteudoComponent,
+    ModalIncluirConteudoComponent,
+    ModalConfirmComponent,
+    LidoPipe,
+    SafePipe,
     HomeComponent,
     HeaderComponent,
     CardTrilhaComponent,
     CardDiferenciaisComponent,
     CardDepoimentosComponent,
     FaqComponent,
-    FooterComponent,
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
@@ -57,6 +76,9 @@ import { FooterComponent } from './home/footer/footer.component';
     ReactiveFormsModule,
     AppMaterialModule,
     HttpClientModule,
+  ],
+  exports: [
+    MenuComponent
   ],
   providers: [DialogService],
   bootstrap: [AppComponent],

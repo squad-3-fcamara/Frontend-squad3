@@ -1,0 +1,59 @@
+@use 'src/custom-theme' as *;
+
+
+.teste {
+    @include primary
+}
+
+span {
+    font-size: 16px;
+}
+
+
+.modal-trilhas {
+    background: #FFFFFF;
+    border-radius: 22px; 
+}
+
+.titulo-modal {
+    font-size: 18px;
+    color: #000;
+}
+
+.btn-primario {
+    font-size: 14px;
+    color: #000;
+    border-radius: 20px;
+    border: 1px solid #FFA000;
+    box-shadow: 0px 0px 1px #FFA000;
+    background: transparent;
+    width: 130px;
+    height: 30px; 
+}
+
+.excluir {
+    font-size: 14px;
+    color: #212121;
+    background: rgba(255, 120, 35, 0.2);
+    border: 2px solid #FF7823;
+    box-shadow: 0px 0px 11px #FF7823;
+    border-radius: 20px;
+    width: 161px;
+    height: 31px;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: white;
+}
+
+.conteudo {
+    font-size: 16px;
+    color: #898989;
+    font-weight: bold;
+   
+}
+.conteudo-exclusao {
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+}

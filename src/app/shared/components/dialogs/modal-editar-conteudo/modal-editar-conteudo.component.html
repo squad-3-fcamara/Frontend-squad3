@@ -1,0 +1,49 @@
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-12">
+            <form class="row justify-content-center" novalidate [formGroup]="cadastroForm"
+                autocomplete="off">
+
+                <h3>Editar Conteúdo</h3>
+                <p style="text-align: center;"> 01 - Introdução ao UX - O que é UX?</p>
+                <!-- PEGAR O NOME DO MODULO NO BANCO DE DADOS -->
+               <P style="text-align: center;">Conteúdo: <b> {{ conteudo.nome }}</b></P> 
+
+                <div class="col-md-12 mt-3">
+                    <label class="form-label">Título</label>
+                    <input type="text" class="form-control" name="nome" formControlName="nome" autocomplete="off">
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <label class="form-label">link</label>
+                    <input class="form-control" type="text" name="link" formControlName="link" autocomplete="off">
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <label class="form-label">Descrição</label>
+                    <input type="text" class="form-control"  autocomplete="off" name="descricao"
+                        formControlName="descricao">
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <label class="form-label">Tipo de conteúdo</label>
+                    <input class="form-control" type="text" name="tipo" formControlName="tipo" autocomplete="off">
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <label class="form-label">Autor</label>
+                    <input class="form-control" type="text" name="autor" formControlName="autor" autocomplete="off">
+                </div>
+
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-6 justify-content-center" style="display: flex;">
+                        <button class="btn-primario" (click)="fechar()"><b>Cancelar</b></button>
+                    </div>
+                    <div class="col-md-6">
+                        <button (click)="editarConteudo()" class="atualizar"><b>Atualizar Conteúdo</b></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

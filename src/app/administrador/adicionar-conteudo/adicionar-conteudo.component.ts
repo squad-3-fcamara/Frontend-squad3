@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { DialogData } from 'src/app/services/dialog.service';
+import { ModalInscricaoTrilhasComponent } from 'src/app/shared/components/dialogs/modal-inscricao-trilhas/modal-inscricao-trilhas.component';
 
 @Component({
   selector: 'app-adicionar-conteudo',
@@ -7,58 +11,38 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./adicionar-conteudo.component.scss']
 })
 export class AdicionarConteudoComponent implements OnInit {
-  hide = true;
-  formConteudo!: FormGroup;
-  pageable = {
-    currentPage: 1,
-    pageSize: 10,
-    recordCount: 9,
-}
-admin: any;
 
+  adicionarConteudoForm!: FormGroup;
 
-  constructor(private fb: FormBuilder,) { }
+  constructor(public dialogRef: MatDialogRef<ModalInscricaoTrilhasComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private fb: FormBuilder,
+    private router: Router) { }
+
 
   ngOnInit() {
     this.createForm();
   }
 
   createForm(): void {
-    this.formConteudo = this.fb.group({
-      nome: ['', [Validators.required]],
-      criador: ['', [Validators.required]],
-      arquivo: ['', [Validators.required]],
-      modulo: ['', [Validators.required]],
+    this.adicionarConteudoForm = this.fb.group({
+      titulo: ['', [Validators.required]],
       link: ['', [Validators.required]],
+      descricao: ['', [Validators.required]],
+      tipoConteudo: ['', [Validators.required]],
+      autor: ['', [Validators.required]],
     });
   }
   
-
-  reset() {
-    this.formConteudo.reset();
+  adicionarConteudo():void {
+    this.router.navigate([`/adicionar-conteudo`]);
   }
 
-  save(): void {
+  fecharModal(): void {
+    this.dialogRef.close();
   }
 
- 
-  
   get formControls() {
-    return this.formConteudo.controls;
+    return this.adicionarConteudoForm.controls;
   }
-  edit():void {}
-
-  delete():void {}
-  
-  onPageChange(event: any) {
-    this.pageable.currentPage = event.pageIndex + 1;
-    this.pageable.pageSize = event.pageSize;
-    this.search();
-  }
-  search(): void {
-    const filter = {
-      page: this.pageable.currentPage,
-      pageSize: this.pageable.pageSize
-    }
-}
 }

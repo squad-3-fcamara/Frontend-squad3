@@ -1,23 +1,30 @@
-<app-menu></app-menu>
+<app-menu [menu]="menu"></app-menu>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-12">
-            <p class="saudacao"> Olá {{inscricoes.usuario.nome}}!</p>
-            <h5>Pronto (a) dar os próximos passos na sua trilha de sucesso?</h5>
-            <ng-container *ngFor="let trilha of inscricoes.trilhas">
-                <div>
-                    <p class="trilha-escolhida"> {{trilha.nome}}</p>
-                    <p class="progresso">Olha o quando você caminhou pela trilha:</p>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+            <ng-container *ngIf="inscricoes != null">
+                <p class="saudacao"> Olá {{inscricoes.usuario.nome}}!</p>
+                <h5>Pronto (a) dar os próximos passos na sua trilha de sucesso?</h5>
+                <ng-container *ngFor="let trilha of inscricoes.trilhas">
+                    <div>
+                        <p class="trilha-escolhida"> {{trilha.nome}}</p>
+                        <p class="progresso">Olha o quando você caminhou pela trilha:</p>
                     </div>
-                </div>
-                <div style="display: flex;" class="form-group justify-content-end">
-                    <div class="col-md-offset-2 mt-3">
-                        <span><button class="btn" type="submit">Continuar trilha</button></span>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 5%" aria-valuenow="5" aria-valuemin="0"
+                            aria-valuemax="100">
+                        </div>
                     </div>
-                </div>
+                    <div style="display: flex;" class="form-group justify-content-end">
+                        <div class="col-md-offset-2 mt-3">
+                            <span><button class="btn" (click)="continuarTrilha(trilha)">
+                                <ng-container *ngIf="!usuario.isadmin"> Continuar trilha</ng-container>
+                                <ng-container *ngIf="usuario.isadmin"> Editar trilha</ng-container>
+                                
+                            </button></span>
+                        </div>
+                    </div>
+                </ng-container>
             </ng-container>
         </div>
     </div>
@@ -36,7 +43,8 @@
                         <p class="convite-2">A qualquer momento você pode adicionar outras trilhas para seguir.</p>
                         <div style="display: flex;" class="form-group justify-content-end">
                             <div class="col-md-offset-2 mt-3">
-                                <span><button (click)="adicionarTrilhas()" class="btn-primario">Adicionar
+                                <span><button class="modal-trilhas" (click)="adicionarTrilhas()"
+                                        class="btn-primario">Adicionar
                                         trilha</button></span>
                             </div>
                         </div>

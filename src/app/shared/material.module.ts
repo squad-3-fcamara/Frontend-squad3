@@ -30,7 +30,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
-import { ModalInscricaoTrilhasComponent } from './components/dialogs/modal-inscricao-trilhas/modal-inscricao-trilhas.component';
 
 
 @NgModule({
@@ -52,7 +51,7 @@ import { ModalInscricaoTrilhasComponent } from './components/dialogs/modal-inscr
 		MatSlideToggleModule,
 		MatDialogModule,
 		MatMenuModule,
-        FlexLayoutModule,
+		FlexLayoutModule,
 		MatStepperModule,
 		MatRadioModule,
 		MatCheckboxModule,
@@ -94,10 +93,11 @@ import { ModalInscricaoTrilhasComponent } from './components/dialogs/modal-inscr
 		MatChipsModule,
 		MatSnackBarModule,
 		MatAutocompleteModule
+
 	],
 	declarations: [
-   SnackBarComponent,
-   ModalInscricaoTrilhasComponent
+		SnackBarComponent
+
 	],
 })
 export class AppMaterialModule { }

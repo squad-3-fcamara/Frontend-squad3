@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { LocalStorageUtils } from "../shared/helpers/localstorage";
+import { StringUtils } from "../shared/helpers/string-utils";
 import { SnackBarService } from "./snack-bar.service";
 
 @Injectable({
@@ -110,18 +111,23 @@ export abstract class BaseService {
             return this.handleError(err);
         }));
     }
+ 
     private handleError(err: any): Observable<any> {
         if (err.status == 404) {
             this.snackBarService.openWarning(err.error);
             return of(null);
         }
-        if (err.status == 400 && Array.isArray(err.error)) {
-            // this.loadingService.hideAll();
+        else if (err.status == 400 && (Array.isArray(err.error) || !StringUtils.isNullOrEmpty(err.error))) {
             this.snackBarService.openWarning(err.error);
         }
+        else if (err.status == 400 &&  !StringUtils.isNullOrEmpty(err.error)) {
+            this.snackBarService.openWarning(err.error);
+        }
+        else if (err.status == 500 && Array.isArray(err.error)) {
+            this.snackBarService.openError(['Ocorreu um erro inesperado']);
+        }
         else {
-            // this.loadingService.hideAll();
-            this.snackBarService.openError(['ocorreu um erro inesperado']);
+            this.snackBarService.openError(['Ocorreu um erro inesperado']);
         }
         throw new Error(err.error);
     }

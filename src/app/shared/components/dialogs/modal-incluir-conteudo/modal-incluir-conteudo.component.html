@@ -1,0 +1,47 @@
+<div class="container mt-2">
+    <div class="row justify-content-center">
+
+        <div class="col-md-12 col-12">
+            <form class="row justify-content-center" novalidate [formGroup]="cadastroForm"
+                autocomplete="off">
+
+                <h3>Adicionar Conteúdo</h3>
+                <p style="text-align: center;"> 01 - Introdução ao UX - O que é UX?</p>
+                <!-- PEGAR O NOME DO MODULO NO BANCO DE DADOS -->
+                <div class="col-md-12 mt-3">
+                    <label class="form-label">Título</label>
+                    <input type="text" class="form-control" name="nome" formControlName="nome" autocomplete="off" placeholder="Título do conteúdo">
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <label class="form-label">link</label>
+                    <input class="form-control" type="text" name="link" formControlName="link" autocomplete="off" placeholder="Insira o link">
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <label class="form-label">Descrição</label>
+                    <input class="form-control" type="text" autocomplete="off" name="descricao" formControlName="descricao" placeholder="Breve descição">
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <label class="form-label">Tipo de conteúdo</label>
+                    <input class="form-control" type="text" name="tipo" formControlName="tipo" autocomplete="off" placeholder="Ex: Vídeo, Artigo.">
+                </div>
+
+                <div class="col-md-6 mt-3">
+                    <label class="form-label">Autor</label>
+                    <input class="form-control" type="text" name="autor" formControlName="autor" autocomplete="off" placeholder="Ex: Orange Juice">
+                </div>
+
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-6 justify-content-center" style="display: flex;">
+                        <button class="btn-primario" (click)="fechar()"><b>Cancelar</b></button>
+                    </div>
+                    <div class="col-md-6">
+                        <button (click)="cadastrarConteudo()" class="add-conteudo"><b>Adicionar Conteúdo</b></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

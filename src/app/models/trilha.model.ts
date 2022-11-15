@@ -1,5 +1,5 @@
 export interface Trilha {
-    selecionada: boolean
+    selecionada: boolean 
     id: number
     nome: string
 }
