@@ -124,10 +124,10 @@ export abstract class BaseService {
             this.snackBarService.openWarning(err.error);
         }
         else if (err.status == 500 && Array.isArray(err.error)) {
-            this.snackBarService.openError(['ocorreu um erro inesperado']);
+            this.snackBarService.openError(['Ocorreu um erro inesperado']);
         }
         else {
-            this.snackBarService.openError(['ocorreu um erro inesperado']);
+            this.snackBarService.openError(['Ocorreu um erro inesperado']);
         }
         throw new Error(err.error);
     }

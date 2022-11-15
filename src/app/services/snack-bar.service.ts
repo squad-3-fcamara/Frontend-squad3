@@ -15,7 +15,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
           errors: messages
         },
         verticalPosition: "top",
-        horizontalPosition: "center",
+        horizontalPosition: "left",
         panelClass: 'snackbar-warning'
       });
     }
@@ -26,7 +26,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
           errors: messages
         },
         verticalPosition: "top",
-        horizontalPosition: "center",
+        horizontalPosition: "left",
         panelClass: 'snackbar-success'
       });
     }
@@ -37,7 +37,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
           errors: message
         },
         verticalPosition: "top",
-        horizontalPosition: "center",
+        horizontalPosition: "left",
         panelClass: 'snackbar-info'
       });
     }
@@ -48,7 +48,7 @@ import { SnackBarComponent } from "../shared/components/snack-bar/snack-bar.comp
           errors: message
         },
         verticalPosition: "top",
-        horizontalPosition: "center",
+        horizontalPosition: "left",
         panelClass: 'snackbar-error'
       });
     }
