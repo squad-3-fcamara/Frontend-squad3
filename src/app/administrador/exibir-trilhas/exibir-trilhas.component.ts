@@ -38,10 +38,14 @@ export class ExibirTrilhasComponent implements OnInit {
 
   adicionarTrilhas(): void {
 
-  this.dialogService.openSelecionarTrilhas(this.inscricoes.trilhas);
-    result: () => {
-      this.listarTrilhasUsuario();
-    }
+    const data = this.inscricoes.trilhas;
+    this.dialogService.openSelecionarTrilhas(data,  {
+      result: (confirmed: boolean) => {
+        if (confirmed) {
+          this.listarTrilhasUsuario();
+        }
+      }
+    });
   }
 
   continuarTrilha(trilha: Trilha): void {

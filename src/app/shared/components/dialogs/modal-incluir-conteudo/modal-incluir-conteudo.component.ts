@@ -39,7 +39,7 @@ export class ModalIncluirConteudoComponent implements OnInit {
 
     let conteudo = this.cadastroForm.getRawValue();
     this.conteudosService.cadastrarConteudos(conteudo).subscribe(() => {
-      this.fechar();
+      this.dialogRef.close(true);
     })
   }
 

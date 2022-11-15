@@ -8,10 +8,20 @@ import { Modulo } from '../models/modulo.model';
 import { ModalEditarConteudoComponent } from '../shared/components/dialogs/modal-editar-conteudo/modal-editar-conteudo.component';
 import { ModalIncluirConteudoComponent } from '../shared/components/dialogs/modal-incluir-conteudo/modal-incluir-conteudo.component';
 import { DetalheTrilha } from '../models/detalheTrilha.model';
+import { ConteudosDaAula } from '../models/aula-detalhes.model';
+import { ModalConfirmComponent } from '../shared/components/dialogs/modal-confirm/modal-confirm.component';
 
 export interface DialogData {
     message: string;
     title?: string | undefined;
+    callback?: () => void
+}
+
+export interface ConfirmDialogData {
+    messages: string[];
+    message: string ;
+    title?: string | undefined;
+    buttonConfirm?: string | undefined;
     callback?: () => void
 }
 
@@ -20,21 +30,19 @@ export class DialogService {
 
     constructor(public dialog: MatDialog) { }
 
-    openSelecionarTrilhas(trilhasUsuario: Trilha[]): boolean {
-        let fechou = false;
+    openSelecionarTrilhas(props: Trilha[], callback: any): void {
         const dialogRef = this.dialog.open(ModalInscricaoTrilhasComponent, {
             // width: '353px',
-            data: trilhasUsuario
+            data: props
         });
 
-        dialogRef.afterClosed().subscribe((trilhas: any) => {
-            fechou;
+        dialogRef.afterClosed().subscribe((isExclusion: boolean) => {
+            if (callback)
+                callback.result(isExclusion);
         });
-
-        return fechou;
     }
 
-    openAula(props: DialogData): void {
+    openAula(props: DialogData, callback: any): void {
         const dialogRef = this.dialog.open(AdicionarConteudoComponent, {
             width: '353px',
             data: props
@@ -46,19 +54,22 @@ export class DialogService {
         });
     }
 
-    openCadastrarConteudo(detalhes: DetalheTrilha, idAula: number): void {
+    openCadastrarConteudo(detalhes: any, idAula: number, callback: any): void {
         const dialogRef = this.dialog.open(ModalIncluirConteudoComponent, {
             width: '500px',
             data: {
                 detalhes: detalhes,
                 idAula: idAula
             }
-             
         });
 
+        dialogRef.afterClosed().subscribe((isExclusion: boolean) => {
+            if (callback)
+                callback.result(isExclusion);
+        });
     }
 
-    openEdicaoConteudo(conteudo: Modulo, idAula: number): void {
+    openEdicaoConteudo(conteudo: ConteudosDaAula, idAula: number, callback: any): void {
         const dialogRef = this.dialog.open(ModalEditarConteudoComponent, {
             width: '500px',
             data: {
@@ -67,11 +78,33 @@ export class DialogService {
             } 
         });
 
+        dialogRef.afterClosed().subscribe((isExclusion: boolean) => {
+            if (callback)
+                callback.result(isExclusion);
+        });
+
     }
 
-    excluirConteudo(conteudo: Modulo): void {
+    excluirConteudo(conteudo: ConteudosDaAula, callback: any): void {
         const dialogRef = this.dialog.open(ModalExcluirConteudoComponent, {
             data: conteudo
+        });
+        
+        dialogRef.afterClosed().subscribe((isExclusion: boolean) => {
+            if (callback)
+                callback.result(isExclusion);
+        });
+    }
+
+    openConfirmationDialog(props: ConteudosDaAula, callback: any): void {
+        const dialogRef = this.dialog.open(ModalConfirmComponent, {
+            width: '353px',
+            data: props
+        });
+
+        dialogRef.afterClosed().subscribe((isExclusion: boolean) => {
+            if (callback)
+                callback.result(isExclusion);
         });
     }
 }

@@ -7,6 +7,7 @@ import { ConteudoService } from 'src/app/services/conteudo.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Usuario } from 'src/app/models/usuario-response.model';
 import { Modulo } from 'src/app/models/modulo.model';
+import { AulaDetalhes, ConteudosDaAula } from 'src/app/models/aula-detalhes.model';
 
 @Component({
   selector: 'app-aulas',
@@ -15,7 +16,7 @@ import { Modulo } from 'src/app/models/modulo.model';
 })
 export class AulasComponent implements OnInit {
 
-  aula!: any;
+  aula!: AulaDetalhes;
   forumForm!: FormGroup;
   usuario!: Usuario;
 
@@ -34,30 +35,15 @@ export class AulasComponent implements OnInit {
       return;
     }
 
-    const idAula = this.activatedRoute.snapshot.params['idAula'];
-    const idTrilha = this.activatedRoute.snapshot.params['idTrilha'];
-    this.obterConteudo(idTrilha, idAula);
-
+    this.obterConteudo();
   }
 
-  obterConteudo(idTrilha: number, idAula: number): void {
+  obterConteudo(): void {
+    const idAula = this.activatedRoute.snapshot.params['idAula'];
+    const idTrilha = this.activatedRoute.snapshot.params['idTrilha'];
     this.trilhaService.obterAulas(idTrilha, idAula).subscribe(response => {
       this.aula = response;
     })
-  }
-
-  adicionarConteudo(): void {
-    const data = {
-      title: 'Selecionar trilhas',
-      message: 'Selecione suas trilhas',
-    };
-
-    this.dialogService.openAula(data);
-    result: () => {
-
-      // quando fecha o modal executa este trecho
-      // this.listarTrilhasUsuario();
-    }
   }
 
   createFormDuvida(): void {
@@ -70,22 +56,45 @@ export class AulasComponent implements OnInit {
     this.forumForm.reset();
   }
 
-  excluirConteudo(conteudo: Modulo): void {
+  excluirConteudo(conteudo: ConteudosDaAula): void {
 
-    this.dialogService.excluirConteudo(conteudo);
-    result: () => {
-    }
+    const data = conteudo;
+    this.dialogService.excluirConteudo(data, {
+      result: (confirmed: boolean) => {
+        if (confirmed) {
+          this.obterConteudo();
+        }
+      }
+    });
   }
 
-  editarConteudo(conteudo: Modulo): void {
-    this.dialogService.openEdicaoConteudo(conteudo, this.activatedRoute.snapshot.params['idAula']);
-    result: () => {
-    }
+  editarConteudo(conteudo: ConteudosDaAula): void {
+    const data = conteudo;
+    this.dialogService.openEdicaoConteudo(data, this.activatedRoute.snapshot.params['idAula'], {
+      result: (confirmed: boolean) => {
+        if (confirmed) {
+          this.obterConteudo();
+        }
+      }
+    });
   }
 
   cadastrarConteudo(): void {
-    this.dialogService.openCadastrarConteudo(this.aula ,this.activatedRoute.snapshot.params['idAula']);
-    result: () => {
-    }
+
+    this.dialogService.openCadastrarConteudo(this.aula, this.activatedRoute.snapshot.params['idAula'], {
+      result: (confirmed: boolean) => {
+        if (confirmed) {
+          this.obterConteudo();
+        }
+      }
+    });
+  }
+
+  contemLivros(): boolean {
+    const contemLivros = this.aula.conteudosDaAula.find(x => x.tipo == 'livro');
+    if (contemLivros)
+      return true;
+
+    return false;
   }
 }

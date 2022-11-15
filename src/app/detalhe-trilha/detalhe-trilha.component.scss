@@ -1,7 +1,7 @@
 .titulo {
   font-size: 48px;
   color: #ffffff;
-  margin: 113px 0 0 242px;
+  margin: 113px 0 0 248px;
 
   span {
     font-family: sans-serif;
@@ -89,7 +89,7 @@
 .subtitulo {
   font-size: 30px;
   color: #ffffff;
-  margin-left: 242px;
+  margin-left: 10%;
 
   @media (max-width: 768px) {
     font-size: 20px;
@@ -176,5 +176,120 @@
     }
   }
 }
+
+.saudacao {
+  font-style: normal;
+  font-size: 25px;
+  font-weight: 600;
+  color: #FFFBF9;
+  margin-bottom: 5px !important;
+}
+
+h5,
+.progresso {
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-top: 18px;
+}
+
+.trilha-escolhida {
+  margin-top: 70px;
+  font-size: 25px;
+  color: #C9C6C4;
+}
+
+.progress {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: 1px solid #FF7823;
+}
+
+.progress-bar {
+  background: #FF7823;
+  box-shadow: 0px 4px 77px #FF7823;
+  border: 1px solid #FF7823;
+}
+
+.botao-continuar {
+  font-family: 'Montserrat-Regular';
+  font-size: 10px;
+  color: #FFFBF9;
+  background: rgba(255, 120, 35, 0.2);
+  border: 1px solid #FF7823;
+  box-shadow: 0px 0px 11px #FF7823;
+  border-radius: 24px;
+}
+
+.convite {
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+
+.convite-2 {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.cards {
+  border: 2px solid #FF5A23;
+  filter: drop-shadow(0px 0px 100px #FF5A23);
+  border-radius: 24px;
+  padding: 15px;
+}
+
+.card-trilha {
+  border: 2px solid #FF5A23;
+  filter: drop-shadow(0px 0px 100px #FF5A23);
+  border-radius: 24px;
+  padding: 15px;
+  border-left: none;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  margin-left: -15px;
+}
+
+.btn-primario {
+  font-size: 14px;
+  color: #FFFBF9;
+  border-radius: 20px;
+  border: 1px solid #FFA000;
+  box-shadow: 0px 0px 1px #FFA000;
+  background: transparent;
+  padding: 7px;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFBF9;
+}
+
+
+.col-card-trilhas {
+  box-shadow: 0px 4px 103px rgba(255, 90, 35, 0.4);
+  border-radius: 42px;
+  background: #FF5A23;
+}
+
+.img-card-trilhas {
+  background: url(../../assets/medias/IMG_outrastrilhas_semSombra.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 42px;
+  width: 227px;
+  height: 235px;
+}
+
+
+.img-card-discord {
+  background: url(../../assets/medias/IMG_discord_meninas_semsombra.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 42px;
+  width: 227px;
+  height: 235px;
+}
+
 
 

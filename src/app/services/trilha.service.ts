@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { SnackBarService } from './snack-bar.service';
 import { DetalheTrilha } from '../models/detalheTrilha.model';
+import { AulaDetalhes } from '../models/aula-detalhes.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,6 @@ export class TrilhaService extends BaseService {
 
   obterAulas(idtrilha: number, idAula: number) {
     const httpOptions = this.obterAuthHeaderJson();
-    return this._get<DetalheTrilha>(`https://orange-squad03.herokuapp.com/trilhas/${idtrilha}/aulas/${idAula}`, httpOptions);
+    return this._get<AulaDetalhes>(`https://orange-squad03.herokuapp.com/trilhas/${idtrilha}/aulas/${idAula}`, httpOptions);
   }
 }

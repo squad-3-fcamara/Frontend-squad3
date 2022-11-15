@@ -11,7 +11,7 @@ span {
 
 
 .modal-trilhas {
-    background: #FFFFFF;
+    background: #FFFBF9;
     border-radius: 22px;
 }
 
@@ -27,8 +27,7 @@ span {
     border: 1px solid #FFA000;
     box-shadow: 0px 0px 1px #FFA000;
     background: transparent;
-    width: 130px;
-    height: 30px; 
+    padding: 10px;
 }
 
 .add-trilha {
@@ -38,9 +37,8 @@ span {
     border: 2px solid #FF7823;
     box-shadow: 0px 0px 11px #FF7823;
     border-radius: 20px;
-    width: 161px;
-    height: 31px;
-    
+    width: 162px;
+    padding: 10px;
 }
 
 .add-trilha:disabled {

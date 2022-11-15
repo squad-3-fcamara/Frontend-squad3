@@ -1,19 +1,26 @@
 mat-nav-list.list-horizontal {
-    padding: 0;
-    .mat-list-item {
-      display: inline-block;
-      height: auto;
-      width: auto;
+  padding: 0;
+
+  .mat-list-item {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    color: white !important;
+
+    a {
       color: white !important;
-      a{
-        color: white !important;
-      }
     }
   }
+}
 
-  mat-toolbar{
-    background: #212122;
-    justify-content: flex-end;
-    padding-right: 20px;
-    font-weight: bold;
-  }
+mat-toolbar {
+  background: #212122;
+  justify-content: flex-end;
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+img {
+  width: 68.97px;
+  height: 51px;
+}

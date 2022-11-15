@@ -97,6 +97,7 @@ import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 	],
 	declarations: [
 		SnackBarComponent
+
 	],
 })
 export class AppMaterialModule { }

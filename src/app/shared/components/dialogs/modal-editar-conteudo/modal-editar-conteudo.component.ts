@@ -1,8 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ConteudosDaAula } from 'src/app/models/aula-detalhes.model';
+import { ConteudoRequest } from 'src/app/models/conteudo-request.model';
 import { Modulo } from 'src/app/models/modulo.model';
 import { ConteudoService } from 'src/app/services/conteudo.service';
+import { ConfirmDialogData } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-modal-editar-conteudo',
@@ -11,7 +14,7 @@ import { ConteudoService } from 'src/app/services/conteudo.service';
 })
 export class ModalEditarConteudoComponent implements OnInit {
 
-  conteudo!: Modulo;
+  conteudo!: ConteudosDaAula;
   cadastroForm!: FormGroup;
   
   constructor(public dialogRef: MatDialogRef<ModalEditarConteudoComponent>,
@@ -20,8 +23,8 @@ export class ModalEditarConteudoComponent implements OnInit {
     private fb: FormBuilder,) { }
 
   ngOnInit(): void {
-    this.createForm();
     this.conteudo = this.data.conteudo;
+    this.createForm();
     this.patchValues();
   }
 
@@ -29,6 +32,7 @@ export class ModalEditarConteudoComponent implements OnInit {
 
     this.cadastroForm = this.fb.group({
       id_aula: [this.data.idAula],
+      // idConteudo: [this.conteudo.id],
       nome: ['', [Validators.required]],
       link: ['', [Validators.required]],
       tipo: ['', [Validators.required]],
@@ -45,9 +49,10 @@ export class ModalEditarConteudoComponent implements OnInit {
 
   editarConteudo(): void {
 
-    let conteudo = this.cadastroForm.getRawValue();
+    let conteudo: ConteudoRequest = this.cadastroForm.getRawValue();
+
     this.conteudosService.editarConteudos(conteudo).subscribe(() => {
-      this.fechar();
+      this.dialogRef.close(true);
     })
   }
 

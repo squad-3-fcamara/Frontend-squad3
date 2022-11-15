@@ -19,7 +19,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-12 titulo-trilha justify-content-end" style="display: flex;">
-                <strong>TRILHA</strong><span> {{ aula.nomeTrilha.nome }} </span>
+                <strong>TRILHA </strong><span> {{ aula.nomeTrilha.nome }} </span>
             </div>
 
             <ng-container *ngIf="usuario.isadmin">
@@ -38,62 +38,122 @@
     </div>
 
     <ng-container *ngFor="let conteudo of aula.conteudosDaAula">
-        <div class="container">
-            <div class="row tipo-de-conteudo mt-5 justify-content-center">
-                <div class="col-md-8 col-12">
-                    <p style="margin-bottom: 0px;">#{{ conteudo.tipo }} #{{conteudo.autor}}</p>
-                    <ng-container *ngIf="conteudo.tipo == 'vídeo'">
-                        <iframe class="video-fluid z-depth-1" [src]="conteudo.link | safe:'resourceUrl'" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </ng-container>
-                    <div class="row">
-                        <div class="col-md-9 col-12">
-                            <a href={{conteudo.link}} target="_blank">
-                                <p class="titulo-conteudo">{{ conteudo.nome }}</p>
-                            </a>
-                        </div>
-                        <ng-container *ngIf="conteudo.tipo != 'vídeo' && !usuario.isadmin">
-                            <div class="col-md-3 col-12 justify-content-end"
-                                style="display: flex; align-items: flex-end;">
-                                <a href={{conteudo.link}} target="_blank"><button class="btn" type="submit">Ir para {{
-                                        conteudo.tipo }}</button></a>
-                            </div>
+        <ng-container *ngIf="conteudo.tipo != 'livro'">
+            <div class="container">
+                <div class="row tipo-de-conteudo mt-5 justify-content-center">
+                    <div class="col-md-8 col-12">
+                        <p style="margin-bottom: 0px;">#{{ conteudo.tipo }} #{{conteudo.autor}}</p>
+                        <ng-container *ngIf="conteudo.tipo == 'vídeo'">
+                            <iframe class="video-fluid z-depth-1" [src]="conteudo.link | safe:'resourceUrl'"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                         </ng-container>
-
-                        <ng-container *ngIf="usuario.isadmin">
-                            <div class="col-md-3 col-12 justify-content-end"
-                                style="display: flex; align-items: flex-end;">
-                                <button (click)="excluirConteudo(conteudo)" matTooltipPosition="left" style="float: none" type="button" class="grid-button">
-                                    <mat-icon >delete</mat-icon>
-                                </button>
-                                <button (click)="editarConteudo(conteudo)" matTooltipPosition="left" style="float: none" type="button" class="grid-button">
-                                    <mat-icon>edit</mat-icon>
-                                </button>
+                        <div class="row">
+                            <div class="col-md-9 col-12">
+                                <a href={{conteudo.link}} target="_blank">
+                                    <p class="titulo-conteudo">{{ conteudo.nome }}</p>
+                                </a>
                             </div>
-                        </ng-container>
-                    </div>
+                            <ng-container *ngIf="conteudo.tipo != 'vídeo' && !usuario.isadmin">
+                                <div class="col-md-3 col-12 justify-content-end"
+                                    style="display: flex; align-items: flex-end;">
+                                    <a href={{conteudo.link}} target="_blank"><button class="btn" type="submit">Ir para
+                                            {{
+                                            conteudo.tipo }}</button></a>
+                                </div>
+                            </ng-container>
 
-                    <p class="sobre-conteudo">SOBRE O {{ conteudo.tipo | uppercase }}</p>
-                    <div class="row">
-                        <div class="col-md-11 col-12">
-                            <p class="resumo-conteudo"> {{ conteudo.descricao }}</p>
+                            <ng-container *ngIf="usuario.isadmin">
+                                <div class="col-md-3 col-12 justify-content-end"
+                                    style="display: flex; align-items: flex-end;">
+                                    <button (click)="excluirConteudo(conteudo)" matTooltipPosition="left"
+                                        style="float: none" type="button" class="grid-button">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                    <button (click)="editarConteudo(conteudo)" matTooltipPosition="left"
+                                        style="float: none" type="button" class="grid-button">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <p class="sobre-conteudo">SOBRE O {{ conteudo.tipo | uppercase }}</p>
+                        <div class="row">
+                            <div class="col-md-11 col-12">
+                                <p class="resumo-conteudo"> {{ conteudo.descricao }}</p>
+                            </div>
+                        </div>
+                        <div fxLayout="row wrap" fxLayoutAlign="start top" fxLayoutGap="25px">
+                            <mat-checkbox fxLayoutAlign="center center">
+                                {{ conteudo.tipo | lido}}
+                            </mat-checkbox>
                         </div>
                     </div>
-                    <div fxLayout="row wrap" fxLayoutAlign="start top" fxLayoutGap="25px">
-                        <mat-checkbox fxLayoutAlign="center center">
-                            {{ conteudo.tipo | lido}}
-                        </mat-checkbox>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <hr class="separator" />
                     </div>
                 </div>
             </div>
+        </ng-container>
+    </ng-container>
 
+    <ng-container *ngIf="contemLivros()">
+        <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12">
-                    <hr class="separator" />
+                <div class="col-md-8 col-12">
+                    <div class="row">
+                        <div class="col para-aprofundar">PARA APROFUNDAR:</div>
+                    </div>
+                    <div class="row">
+                        <div class="col livros">Livros:</div>
+                    </div>
                 </div>
             </div>
         </div>
+    </ng-container>
+
+    <ng-container *ngFor="let livro of aula.conteudosDaAula">
+        <ng-container *ngIf="livro.tipo == 'livro'">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-12">
+                        <div class="row">
+                            <div class="col-md-2 col-12">
+                                <img style="height: 200px;" [src]="livro.link" [alt]="livro.nome">
+                            </div>
+                            <div class="col-md-9 col-12" style="padding-left: 25px;">
+                                <p class="forum">Nome do livro: <strong>{{ livro.nome}}</strong></p>
+                                <p class="forum">Autor: <strong>{{ livro.autor}}</strong></p>
+                                <p class="sobre-conteudo">SOBRE O {{ livro.tipo | uppercase }}</p>
+                                <p class="forum">{{ livro.descricao }}</p>
+                            </div>
+                            <ng-container *ngIf="usuario.isadmin">
+                                <div class="col-md-1 col-12 justify-content-end" style="display: flex; align-items: flex-start;">
+                                    <button (click)="excluirConteudo(livro)" matTooltipPosition="left" style="float: none"
+                                        type="button" class="grid-button">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                    <button (click)="editarConteudo(livro)" matTooltipPosition="left" style="float: none"
+                                        type="button" class="grid-button">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <hr class="separator" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     </ng-container>
 
     <div class="container">

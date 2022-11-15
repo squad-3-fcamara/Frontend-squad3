@@ -1,7 +1,4 @@
-<app-menu></app-menu>
-
-
-<
+<app-menu [menu]="menu"></app-menu>
       <ng-container *ngIf="detalheTrilha != undefined">
         <h1 class="titulo">
           <strong> TRILHA </strong><span>{{ detalheTrilha.trilha.nome }}</span>
@@ -27,6 +24,8 @@
 
         <div class="botao-container">
           <button><b>Continuar Trilha</b></button>
+
+          <button (click)="continuarTrilha()">Continuar Trilha</button>
         </div>
       </ng-container>
 
@@ -61,4 +60,53 @@
           </div>
         </div>
       </ng-container>
-  
+ 
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 img-card-trilhas"></div>
+    <div class="col-md-6 col-12 align-items-center" style="display: flex;">
+      <div class="container-fluid" style="padding: 0px;">
+        <div class="row card-trilha">
+          <div class="col-md-12 col-12">
+            <p class="convite">Você sabe que pode adicionar mais trilhas?</p>
+            <p class="convite-2">A qualquer momento você pode adicionar outras trilhas para seguir.</p>
+            <div style="display: flex;" class="form-group justify-content-end">
+              <div class="col-md-offset-2 mt-3">
+                <span><button class="modal-trilhas" (click)="adicionarTrilhas()" class="btn-primario">Adicionar
+                    trilha</button></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3 mb-5" style="padding-bottom: 100px !important;">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-12 img-card-discord"></div>
+    <div class="col-md-6 col-12 align-items-center" style="display: flex;">
+      <div class="container-fluid" style="padding: 0px;">
+        <div class="row card-trilha">
+          <div class="col-md-12 col-12">
+            <p class="convite">Já conhece a nossa comunidade no Discord?</p>
+            <p class="convite-2">Lá você consegue conversar com pessoas que estão passando pelo mesmo
+              momento que você. Troca de ideias,
+              conhecimentos.</p>
+            <div style="display: flex;" class="form-group justify-content-end">
+              <div class="col-md-offset-2 mt-3">
+                <span><button class="btn-primario"><a href="https://discord.com/invite/NtESsDFGx5" target="_blank"
+                      rel="noopener noreferrer">Conhecer
+                      comunidade</a></button></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

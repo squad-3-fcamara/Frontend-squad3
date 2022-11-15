@@ -33,6 +33,7 @@ import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferen
 import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoimentos.component';
 import { FaqComponent } from './home/faq/faq.component';
 import { FooterComponent } from './home/footer/footer.component';
+import { ModalConfirmComponent } from './shared/components/dialogs/modal-confirm/modal-confirm.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { FooterComponent } from './home/footer/footer.component';
     ModalExcluirConteudoComponent,
     ModalEditarConteudoComponent,
     ModalIncluirConteudoComponent,
+    ModalConfirmComponent,
     LidoPipe,
     SafePipe,
     HomeComponent,

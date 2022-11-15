@@ -10,9 +10,9 @@
             <div class="col-md-10">
                 <ng-container *ngFor="let item of trilhas; let index = index">
                     <div fxLayout="row wrap" fxLayoutAlign="start top" fxLayoutGap="25px">
-                        <mat-checkbox [checked]="item.selecionada" formControlName="trilha" name="index" fxLayoutAlign="center center"
+                        <mat-checkbox [checked]="item.selecionada" name="index" fxLayoutAlign="center center"
                             (change)="selecionarTrilha($event, item)">
-                            <b>{{ item.nome}}</b>
+                            {{ item.nome}}
                         </mat-checkbox>
                     </div>
                 </ng-container>
@@ -22,10 +22,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <button class="btn-primario" (click)="fechar()"><b>Cancelar</b></button>
+                <strong><button class="btn-primario" (click)="fechar()">Cancelar</button></strong>
             </div>
             <div class="col">
-                <button (click)="adicionarTrilha()" class="add-trilha"><b>Adicionar trilha</b></button>
+                <button (click)="adicionarTrilha()" class="add-trilha">Adicionar trilha</button>
             </div>
         </div>
     </div>

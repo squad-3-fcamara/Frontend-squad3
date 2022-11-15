@@ -1,5 +1,5 @@
 export interface ConteudoRequest {
-    id: number
+    // idConteudo: number
     id_aula: number
     ordem: string
     nome: string

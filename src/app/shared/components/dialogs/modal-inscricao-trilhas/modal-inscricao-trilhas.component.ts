@@ -16,6 +16,7 @@ export class ModalInscricaoTrilhasComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Trilha[],
     private trilhaService: TrilhaService,
     private userService: UserService) { }
+    
   trilhas: Trilha[] = [];
 
   ngOnInit(): void {
@@ -50,7 +51,7 @@ export class ModalInscricaoTrilhasComponent implements OnInit {
     }
 
     this.userService.adicionarTrilhasUsuario(adicionarTrilhas).subscribe(() => {
-      this.fechar();
+      this.dialogRef.close(true);
     });
   }
 
