@@ -1,0 +1,75 @@
+<app-header></app-header>
+<main>
+  <section class="introducao">
+    <div class="texto">
+      <h1>
+        QUER MIGRAR PRA <span>ÁREA TECH</span> E NÃO SABE POR ONDE COMEÇAR?
+      </h1>
+      <h3>Fique tranquilo, a gente te mostra a <b>trilha certa!</b></h3>
+      <button><a routerLink="/login">Começar trilha</a></button>
+    </div>
+    <img src="/assets/medias/ImagemHome_Desk.png" />
+  </section>
+
+  <app-card-trilha></app-card-trilha>
+
+  <section class="nossaTrilha-container">
+    <h3>Pra quem é nossa trilha?</h3>
+    <div class="nossaTrilha-card">
+      <img
+        class="imagemMulher"
+        src="/assets/medias/FotoHome_MeninaCapuzNossaTrilha.png"
+      />
+      <div class="texto">
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Sente curiosidade sobre a carreira Tech</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Quer dominar do zero os conceitos e técnicas da área</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Procura conteúdo de qualidade e gratuito</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>Está migrando de carreira para a área tech</p>
+        </div>
+        <div>
+          <img src="/assets/medias/Icone_Correto.svg" />
+          <p>
+            Sente que com o apoio de uma comunidade vitaminada irá se
+            desenvolver mais
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="diferenciais-container">
+    <h3>Nossos diferenciais</h3>
+    <div class="diferenciais-cards">
+      <app-card-diferenciais
+        *ngFor="let diferencial of diferenciais"
+        [ordem]="diferencial.ordem"
+        [titulo]="diferencial.titulo"
+        [descricao]="diferencial.descricao"
+      ></app-card-diferenciais>
+    </div>
+  </section>
+
+  <app-card-depoimentos></app-card-depoimentos>
+
+  <section class="chamativa-container">
+    <h1>SUA CARREIRA PODE TRILHAR O <b>MELHOR CAMINHO!</b></h1>
+    <button><a routerLink="/login">Começar trilha</a></button>
+  </section>
+
+  <div class="divisor"></div>
+
+  <app-faq></app-faq>
+
+  <div class="divisor"></div>
+</main>

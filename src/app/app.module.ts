@@ -26,6 +26,14 @@ import { ModalEditarConteudoComponent } from './shared/components/dialogs/modal-
 import { ModalExcluirConteudoComponent } from './shared/components/dialogs/modal-excluir-conteudo/modal-excluir-conteudo.component';
 import { ModalInscricaoTrilhasComponent } from './shared/components/dialogs/modal-inscricao-trilhas/modal-inscricao-trilhas.component';
 import { ModalIncluirConteudoComponent } from './shared/components/dialogs/modal-incluir-conteudo/modal-incluir-conteudo.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './home/header/header.component';
+import { CardTrilhaComponent } from './home/card-trilha/card-trilha.component';
+import { CardDiferenciaisComponent } from './home/card-diferenciais/card-diferenciais.component';
+import { CardDepoimentosComponent } from './home/card-depoimentos/card-depoimentos.component';
+import { FaqComponent } from './home/faq/faq.component';
+import { FooterComponent } from './home/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -42,12 +50,21 @@ import { ModalIncluirConteudoComponent } from './shared/components/dialogs/modal
     DashboardPerfilComponent,
     AulasComponent,
     DetalheTrilhaComponent,
+
     ModalInscricaoTrilhasComponent,
     ModalExcluirConteudoComponent,
     ModalEditarConteudoComponent,
     ModalIncluirConteudoComponent,
     LidoPipe,
     SafePipe,
+    HomeComponent,
+    HeaderComponent,
+    CardTrilhaComponent,
+    CardDiferenciaisComponent,
+    CardDepoimentosComponent,
+    FaqComponent,
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
