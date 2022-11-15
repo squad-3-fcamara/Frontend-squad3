@@ -24,9 +24,9 @@ export class ConteudoService extends BaseService {
         return this._delete<Aula>(`https://orange-squad03.herokuapp.com/conteudos/${id}`, httpOptions);
     }
 
-    editarConteudos(conteudo: ConteudoRequest) {
+    editarConteudos(conteudo: ConteudoRequest, idConteudo: number) {
         const httpOptions = this.obterAuthHeaderJson();
-        return this._patch<Aula>(`https://orange-squad03.herokuapp.com/conteudo/${conteudo.id_aula}`, conteudo, httpOptions);
+        return this._patch<Aula>(`https://orange-squad03.herokuapp.com/conteudo/${idConteudo}`, conteudo, httpOptions);
     }
 
     cadastrarConteudos(conteudo: ConteudoRequest) {

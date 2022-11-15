@@ -17,7 +17,11 @@
                     </div>
                     <div style="display: flex;" class="form-group justify-content-end">
                         <div class="col-md-offset-2 mt-3">
-                            <span><button class="btn" (click)="continuarTrilha(trilha)">Continuar trilha</button></span>
+                            <span><button class="btn" (click)="continuarTrilha(trilha)">
+                                <ng-container *ngIf="!usuario.isadmin"> Continuar trilha</ng-container>
+                                <ng-container *ngIf="usuario.isadmin"> Editar trilha</ng-container>
+                                
+                            </button></span>
                         </div>
                     </div>
                 </ng-container>

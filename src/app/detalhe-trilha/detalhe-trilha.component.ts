@@ -9,6 +9,7 @@ import { Inscricoes } from '../models/inscricoes.model';
 import { Usuario } from '../models/usuario-response.model';
 import { MenuItemBaseComponent } from '../menu-base/menu-item-base.component';
 import { Menu } from '../models/menu.model';
+import { Modulo } from '../models/modulo.model';
 
 @Component({
   selector: 'app-detalhe-trilha',
@@ -59,13 +60,14 @@ export class DetalheTrilhaComponent extends MenuItemBaseComponent implements OnI
   }
 
   getDetalhesTrilha(id: number): void {
-    this.trilhaService.oberDetalhesTrilhas(id)
+    this.trilhaService.obterDetalhesTrilhas(id)
       .subscribe((detalhe) => (this.detalheTrilha = detalhe));
   }
 
-  continuarAula(aula: Aula, detalheTrilha: DetalheTrilha): void {
+  continuarAula(aula: Aula, modulo: Modulo): void {
     const idAula = aula.id;
-    const idTrilha = detalheTrilha.trilha.id;
+    const idTrilha = this.detalheTrilha.trilha.id;
+    const idModulo = modulo.id
     this.router.navigate([`/aulas/${idTrilha}/${idAula}`]);
   }
 
@@ -81,9 +83,10 @@ export class DetalheTrilhaComponent extends MenuItemBaseComponent implements OnI
   }
 
   continuarTrilha(): void {
-
+    // vai pra primeira aula da trilha
     const idTrilha = this.detalheTrilha.trilha.id;
-    const idAula = this.detalheTrilha.modulos[0].id;
+    const idModulo = this.detalheTrilha.modulos[0].id;
+    const idAula = this.detalheTrilha.modulos[0].aulas[0].id;
     this.router.navigate([`/aulas/${idTrilha}/${idAula}`]);
   }
 

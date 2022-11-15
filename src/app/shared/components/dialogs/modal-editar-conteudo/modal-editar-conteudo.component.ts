@@ -32,7 +32,6 @@ export class ModalEditarConteudoComponent implements OnInit {
 
     this.cadastroForm = this.fb.group({
       id_aula: [this.data.idAula],
-      // idConteudo: [this.conteudo.id],
       nome: ['', [Validators.required]],
       link: ['', [Validators.required]],
       tipo: ['', [Validators.required]],
@@ -51,7 +50,7 @@ export class ModalEditarConteudoComponent implements OnInit {
 
     let conteudo: ConteudoRequest = this.cadastroForm.getRawValue();
 
-    this.conteudosService.editarConteudos(conteudo).subscribe(() => {
+    this.conteudosService.editarConteudos(conteudo, this.data.idModulo).subscribe(() => {
       this.dialogRef.close(true);
     })
   }

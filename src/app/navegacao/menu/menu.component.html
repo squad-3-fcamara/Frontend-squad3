@@ -8,11 +8,20 @@
                 <mat-nav-list class="list-horizontal">
                     <ng-container *ngFor="let item of menu">
                         <mat-list-item>
-                            <ng-container *ngIf="item.link != ''">
+                            <ng-container *ngIf="item.link != '' && !item.botao">
                                 <a class="nav-link text-dark" [href]="item.link" target="_blank">{{ item.nome }} </a>
                             </ng-container>
                             <ng-container *ngIf="item.link == ''">
                                 <a class="nav-link text-dark" [routerLink]="item.rota">{{ item.nome }} </a>
+                            </ng-container>
+                            <ng-container *ngIf="item.link == 'Sininho'">
+                                <a class="nav-link text-dark" [routerLink]="['/']">
+                                    <mat-icon>notifications_none</mat-icon>
+                                </a>
+                            </ng-container>
+                            <ng-container *ngIf="item.link == 'Entrar/Cadastrar'">
+                                <span><button class="btn" [routerLink]="['/login']"
+                                    type="submit">Entrar/Cadastrar</button></span>
                             </ng-container>
                         </mat-list-item>
                     </ng-container>

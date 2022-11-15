@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { Trilha } from 'src/app/models/trilha.model';
 import { MenuItemBaseComponent } from 'src/app/menu-base/menu-item-base.component';
 import { Menu } from 'src/app/models/menu.model';
+import { Usuario } from 'src/app/models/usuario-response.model';
 
 @Component({
   selector: 'app-dashboard-perfil',
@@ -19,6 +20,8 @@ export class DashboardPerfilComponent extends MenuItemBaseComponent implements O
 
   menu: Menu[] = [];
   inscricoes!: Inscricoes;
+  usuario!: Usuario;
+
   constructor(
     private trilhaService: TrilhaService,
     private dialogService: DialogService,
@@ -27,12 +30,13 @@ export class DashboardPerfilComponent extends MenuItemBaseComponent implements O
 
   ngOnInit(): void {
     this.criarMenu();
-    const usuario = this.trilhaService.LocalStorage.obterUsuario();
-    if (usuario == null) {
+    this.usuario = this.trilhaService.LocalStorage.obterUsuario();
+    if (this.usuario.nome == null) {
       this.router.navigate(['/login']);
       return;
+      // this.listarTrilhas();
     }
-    
+
     this.listarTrilhasUsuario();
   }
 
@@ -47,6 +51,21 @@ export class DashboardPerfilComponent extends MenuItemBaseComponent implements O
     this.userService.getInscricoesUser().subscribe(response => [
       this.inscricoes = response
     ])
+  }
+
+  listarTrilhas(): any {
+    this.trilhaService.obterTrilhas().subscribe(response => {
+      const trilhas: Inscricoes = {
+        usuario: {
+          email: '',
+          id: 0,
+          isadmin: false,
+          nome: ''
+        },
+        trilhas: response
+      };
+      this.inscricoes = trilhas;
+    })
   }
 
   adicionarTrilhas(): void {

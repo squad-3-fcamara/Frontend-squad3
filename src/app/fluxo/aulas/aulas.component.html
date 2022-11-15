@@ -1,4 +1,4 @@
-<app-menu></app-menu>
+<app-menu [menu]="menu"></app-menu>
 
 <ng-container *ngIf="!usuario.isadmin">
     <div class="container mt-4">
@@ -19,16 +19,16 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-12 titulo-trilha justify-content-end" style="display: flex;">
-                <strong>TRILHA </strong><span> {{ aula.nomeTrilha.nome }} </span>
+                <strong>TRILHA </strong><span style="padding-left: 10px;"> {{ aula.nomeTrilha.nome }} </span>
             </div>
 
-            <ng-container *ngIf="usuario.isadmin">
-                <div class="col-md-4 col-12 justify-content-end" style="display: flex;">
+            <div class="col-md-4 col-12 justify-content-end" style="display: flex;">
+                <ng-container *ngIf="usuario.isadmin">
                     <div style="display: flex; align-items: flex-end;">
                         <button class="btn" (click)="cadastrarConteudo()" type="submit">Adicionar conteúdo</button>
                     </div>
-                </div>
-            </ng-container>
+                </ng-container>
+            </div>
         </div>
         <div class="row  mt-4 justify-content-center">
             <div class="col-md-5 col-12 titulo-aula justify-content-start" style="display: flex; padding-left: 30px;">
@@ -133,13 +133,14 @@
                                 <p class="forum">{{ livro.descricao }}</p>
                             </div>
                             <ng-container *ngIf="usuario.isadmin">
-                                <div class="col-md-1 col-12 justify-content-end" style="display: flex; align-items: flex-start;">
-                                    <button (click)="excluirConteudo(livro)" matTooltipPosition="left" style="float: none"
-                                        type="button" class="grid-button">
+                                <div class="col-md-1 col-12 justify-content-end"
+                                    style="display: flex; align-items: flex-start;">
+                                    <button (click)="excluirConteudo(livro)" matTooltipPosition="left"
+                                        style="float: none" type="button" class="grid-button">
                                         <mat-icon>delete</mat-icon>
                                     </button>
-                                    <button (click)="editarConteudo(livro)" matTooltipPosition="left" style="float: none"
-                                        type="button" class="grid-button">
+                                    <button (click)="editarConteudo(livro)" matTooltipPosition="left"
+                                        style="float: none" type="button" class="grid-button">
                                         <mat-icon>edit</mat-icon>
                                     </button>
                                 </div>

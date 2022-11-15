@@ -69,11 +69,12 @@ export class DialogService {
         });
     }
 
-    openEdicaoConteudo(conteudo: ConteudosDaAula, idAula: number, callback: any): void {
+    openEdicaoConteudo(conteudo: ConteudosDaAula, idAula: number, idModulo: number, callback: any): void {
         const dialogRef = this.dialog.open(ModalEditarConteudoComponent, {
             width: '500px',
             data: {
                 conteudo: conteudo,
+                idModulo: idModulo,
                 idAula: idAula
             } 
         });

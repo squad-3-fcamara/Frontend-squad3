@@ -8,25 +8,29 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { Usuario } from 'src/app/models/usuario-response.model';
 import { Modulo } from 'src/app/models/modulo.model';
 import { AulaDetalhes, ConteudosDaAula } from 'src/app/models/aula-detalhes.model';
+import { MenuItemBaseComponent } from 'src/app/menu-base/menu-item-base.component';
+import { Menu } from 'src/app/models/menu.model';
 
 @Component({
   selector: 'app-aulas',
   templateUrl: './aulas.component.html',
   styleUrls: ['./aulas.component.scss']
 })
-export class AulasComponent implements OnInit {
+export class AulasComponent extends MenuItemBaseComponent implements OnInit {
 
   aula!: AulaDetalhes;
   forumForm!: FormGroup;
   usuario!: Usuario;
+  menu: Menu[] = [];
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
     private dialogService: DialogService,
-    private trilhaService: TrilhaService) { }
+    private trilhaService: TrilhaService) {  super()}
 
   ngOnInit(): void {
+    this.criarMenu();
     this.createFormDuvida();
 
     this.usuario = this.trilhaService.LocalStorage.obterUsuario();
@@ -36,6 +40,13 @@ export class AulasComponent implements OnInit {
     }
 
     this.obterConteudo();
+  }
+
+  criarMenu(): void {
+    this.menu.push(this.itemHome);
+    this.menu.push(this.itemMinhasTrilhas);
+    this.menu.push(this.itemSininho);
+    this.menu.push(this.itemSair);
   }
 
   obterConteudo(): void {
@@ -69,8 +80,9 @@ export class AulasComponent implements OnInit {
   }
 
   editarConteudo(conteudo: ConteudosDaAula): void {
+    const idAula = this.activatedRoute.snapshot.params['idAula'];
     const data = conteudo;
-    this.dialogService.openEdicaoConteudo(data, this.activatedRoute.snapshot.params['idAula'], {
+    this.dialogService.openEdicaoConteudo(data, idAula, conteudo.id, {
       result: (confirmed: boolean) => {
         if (confirmed) {
           this.obterConteudo();
