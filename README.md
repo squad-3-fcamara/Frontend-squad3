@@ -23,8 +23,8 @@ $ npm install
 ou
 $ yarn install
 #Em seguida deixe a aplicação “rodando” através do comando abaixo:
-$ npm start
+$ ng serve
 ou
 $ yarn start
-#A aplicação será aberta na porta:3100 - acesse http://localhost:3100. 
+#A aplicação será aberta na porta:4200 - acesse http://localhost:4200. 
 ```
