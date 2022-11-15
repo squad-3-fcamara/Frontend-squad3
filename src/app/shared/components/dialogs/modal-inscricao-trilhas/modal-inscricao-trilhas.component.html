@@ -12,7 +12,7 @@
                     <div fxLayout="row wrap" fxLayoutAlign="start top" fxLayoutGap="25px">
                         <mat-checkbox [checked]="item.selecionada" formControlName="trilha" name="index" fxLayoutAlign="center center"
                             (change)="selecionarTrilha($event, item)">
-                            {{ item.nome}}
+                            <b>{{ item.nome}}</b>
                         </mat-checkbox>
                     </div>
                 </ng-container>
@@ -22,10 +22,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <strong><button class="btn-primario" (click)="fechar()">Cancelar</button></strong>
+                <button class="btn-primario" (click)="fechar()"><b>Cancelar</b></button>
             </div>
             <div class="col">
-                <button (click)="adicionarTrilha()" class="add-trilha">Adicionar trilha</button>
+                <button (click)="adicionarTrilha()" class="add-trilha"><b>Adicionar trilha</b></button>
             </div>
         </div>
     </div>
